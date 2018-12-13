@@ -325,4 +325,98 @@ public class Amadeus {
 			System.out.print(array[i]+" ");
 		}
 	}
+	
+	public int[] sumaArray(int[]a, int[]b) {
+		int capacidad=a.length;
+		int[] suma=new int[capacidad];
+		for (int i = 0; i < suma.length; i++) {
+			suma[i]=a[i]+b[i];
+		}
+		return suma;
+	}
+	
+	/*/////////////////////////////////////////////////////////////////////*/
+	/*/MATRICES////////////////////////////////////////////////////////////*/
+	/*/////////////////////////////////////////////////////////////////////*/
+	
+	public int[][] rellenaMatriz(int[][] matriz, int maxVal) {
+		int val;
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				val=random.nextInt(maxVal)+1;
+				matriz[i][j]=val;
+			}
+		}
+		return matriz;	
+	}
+	
+	public int[][] creaMatriz(int filas, int columnas, int maxVal) {
+		int[][]matriz=new int[filas][columnas];
+		return rellenaMatriz(matriz, maxVal);
+	}
+	
+	public int[][] sumaMatriz(int[][]a, int[][]b) {
+		int nFilas=a.length;
+		int nColumnas=a[0].length;
+		int[][] suma=new int[nFilas][nColumnas];
+		for (int i = 0; i < suma.length; i++) {
+			for (int j = 0; j < suma[i].length; j++) {
+				suma[i][j]=a[i][j]+b[i][j];
+			}
+		}
+		return suma;
+	}
+	
+	public void imprimeMatriz(int[][]matriz) {
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				System.out.print(matriz[i][j]+" ");
+			}
+			System.out.println("");
+		}
+	}
+	
+	public int mayorEnLaMatriz(int[][] matriz) {
+		int aux=matriz[0][0];
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				if(matriz[i][j]>aux)
+					aux=matriz[i][j];
+			}
+		}
+		return aux;
+	}
+	
+	public void posicionesMayorEnLaMatriz(int[][] matriz) {
+		int mayor=mayorEnLaMatriz(matriz);
+		System.out.println("El mayor número se encuentra en la/s posición/es: ");
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				if(mayor==matriz[i][j])
+					System.out.print("["+i+"]["+j+"]  ");
+			}
+		}
+	}
+	
+	public int menorEnLaMatriz(int[][] matriz) {
+		int aux=matriz[0][0];
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				if(matriz[i][j]<aux)
+					aux=matriz[i][j];
+			}
+		}
+		return aux;
+	}
+	
+	public void posicionesMenorEnLaMatriz(int[][] matriz) {
+		int mayor=menorEnLaMatriz(matriz);
+		System.out.println("El menor número se encuentra en la/s posición/es: ");
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				if(mayor==matriz[i][j])
+					System.out.print("["+i+"]["+j+"]  ");
+			}
+		}
+	}
 }
