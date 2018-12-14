@@ -410,11 +410,11 @@ public class Amadeus {
 	}
 	
 	public void posicionesMenorEnLaMatriz(int[][] matriz) {
-		int mayor=menorEnLaMatriz(matriz);
+		int menor=menorEnLaMatriz(matriz);
 		System.out.println("El menor número se encuentra en la/s posición/es: ");
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[i].length; j++) {
-				if(mayor==matriz[i][j])
+				if(menor==matriz[i][j])
 					System.out.print("["+i+"]["+j+"]  ");
 			}
 		}
