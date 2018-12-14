@@ -1,3 +1,4 @@
+package ejerciciosArray;
 import utilesFran.Amadeus;
 
 public class Ejercicio03 {
