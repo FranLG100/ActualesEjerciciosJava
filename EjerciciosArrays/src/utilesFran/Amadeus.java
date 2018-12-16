@@ -335,6 +335,14 @@ public class Amadeus {
 		return suma;
 	}
 	
+	public int[] invierteArray(int[] array) {
+		int[] inversion=new int[array.length];
+		for (int i = 0; i < array.length; i++) {
+			inversion[i]=array[array.length-1-i];
+		}
+		return inversion;
+	}
+	
 	/*/////////////////////////////////////////////////////////////////////*/
 	/*/MATRICES////////////////////////////////////////////////////////////*/
 	/*/////////////////////////////////////////////////////////////////////*/
