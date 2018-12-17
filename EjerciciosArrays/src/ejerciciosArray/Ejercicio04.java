@@ -17,7 +17,7 @@ public class Ejercicio04 {
 		//Cuento con que el elemento array[1] es una posición par, porque es la segunda
 		//posición
 		for (int i = 0; i < array.length; i++) {
-			if(i%2!=0)
+			if(i%2==0)
 				suma+=array[i];
 			else {
 				if(array[i]>mayor)
