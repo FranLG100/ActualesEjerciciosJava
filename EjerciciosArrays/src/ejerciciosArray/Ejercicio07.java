@@ -7,8 +7,8 @@ public class Ejercicio07 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Amadeus amadeus = new Amadeus();
-		int[][] matrizA=amadeus.creaMatriz(4, 4, 9);
-		int[][] matrizB=amadeus.creaMatriz(4, 4, 9);
+		int[][] matrizA=amadeus.creaMatrizLlena(4, 4, 9);
+		int[][] matrizB=amadeus.creaMatrizLlena(4, 4, 9);
 		int min=amadeus.menorEnLaMatriz(matrizA);
 		int max=amadeus.mayorEnLaMatriz(matrizB);
 		

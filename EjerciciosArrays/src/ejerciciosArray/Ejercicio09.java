@@ -5,7 +5,7 @@ public class Ejercicio09 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		int[] arrayA= {0,1,2,3,4,5,6,7,8,9};
+		int[] arrayA= {0,1,2,3,4,5,6,7,8};
 		int[] arrayB= {7,8,9};
 		int k=0;
 		boolean contenido=false;
@@ -19,6 +19,8 @@ public class Ejercicio09 {
 					contenido=true;
 					break;
 				}
+				if(i==arrayA.length-1)
+					break;
 			}
 			k=0;
 		}

@@ -8,11 +8,11 @@ public class Ejercicio02 {
 		// TODO Auto-generated method stub
 
 		Amadeus amadeus=new Amadeus();
-		int[][] matrizA=amadeus.creaMatriz(2, 3, 9);
+		int[][] matrizA=amadeus.creaMatrizLlena(2, 3, 9);
 		amadeus.imprimeMatriz(matrizA);
 		
 		System.out.println("");
-		int[][] matrizB=amadeus.creaMatriz(2, 3, 9);
+		int[][] matrizB=amadeus.creaMatrizLlena(2, 3, 9);
 		amadeus.imprimeMatriz(matrizB);
 		
 		System.out.println("");

@@ -3,6 +3,7 @@ package utilesFran;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -304,6 +305,12 @@ public class Amadeus {
 	/*/ARRAYS//////////////////////////////////////////////////////////////*/
 	/*/////////////////////////////////////////////////////////////////////*/
 	
+	/**
+	 * Método que llena un array ya existente con valores aleatorios
+	 * @param array Array que deseamos rellenar
+	 * @param maxVal Valor máximo de los números aleatorios generados que llenarán el array
+	 * @return El método devolverá el array que metimos como parámetro de entrada ya relleno
+	 * */
 	public int[] rellenaArray(int[] array, int maxVal) {
 		int val;
 		for (int i = 0; i < array.length; i++) {
@@ -314,18 +321,34 @@ public class Amadeus {
 		
 	}
 	
+	/**
+	 * Método que crea un array ya lleno con valores aleatorios
+	 * @param tamanho Tamaño del Array que deseamos crear
+	 * @param maxVal Valor máximo de los números aleatorios generados que llenarán el array
+	 * @return El método devolverá un array de tamaño 'tamanho' ya lleno
+	 * */
 	public int[] creaArrayLleno(int tamanho,int maxVal) {
 		int[] array=new int[tamanho];
 		return rellenaArray(array,maxVal);
 		
 	}
 	
+	/**
+	 * Método que imprime los valores de un array
+	 * @param array Array que deseamos imprimir
+	 * */
 	public void imprimeArray(int[] array) {
 		for (int i = 0; i < array.length; i++) {
 			System.out.print(array[i]+" ");
 		}
 	}
 	
+	/**
+	 * Método que suma los valores de dos arrays
+	 * @param a Primer array que deseamos sumar
+	 * @param b Segundo array que deseamos sumar
+	 * @return El método devolverá un array con la suma de los arrays anteriores
+	 * */
 	public int[] sumaArray(int[]a, int[]b) {
 		int capacidad=a.length;
 		int[] suma=new int[capacidad];
@@ -335,6 +358,32 @@ public class Amadeus {
 		return suma;
 	}
 	
+	/**
+	 * Método que ordena de menor a mayor un Array
+	 * @param array Array que deseamos ordenar
+	 * @return Array ya ordenado
+	 * */
+	public int[] ordenaArrayMenorMayor(int[] array) {
+		Arrays.sort(array);
+		return array;
+	}
+	
+	/**
+	 * Método que ordena de mayor a menor un Array
+	 * @param array Array que deseamos ordenar
+	 * @return Array ya ordenado
+	 * */
+	public int[] ordenaArrayMayorMenor(int[] array) {
+		Arrays.sort(array);
+		array=invierteArray(array);
+		return array;
+	}
+	
+	/**
+	 * Método que invierte el orden de un array
+	 * @param array Array que deseamos invertir
+	 * @return Array ya invertido
+	 * */
 	public int[] invierteArray(int[] array) {
 		int[] inversion=new int[array.length];
 		for (int i = 0; i < array.length; i++) {
@@ -347,6 +396,13 @@ public class Amadeus {
 	/*/MATRICES////////////////////////////////////////////////////////////*/
 	/*/////////////////////////////////////////////////////////////////////*/
 	
+	
+	/**
+	 * Método que llena una matriz ya existente con valores aleatorios
+	 * @param matriz Matriz que deseamos rellenar
+	 * @param maxVal Valor máximo de los números aleatorios generados que llenarán la matriz
+	 * @return El método devolverá la matriz que metimos como parámetro de entrada ya relleno
+	 * */
 	public int[][] rellenaMatriz(int[][] matriz, int maxVal) {
 		int val;
 		for (int i = 0; i < matriz.length; i++) {
@@ -358,11 +414,39 @@ public class Amadeus {
 		return matriz;	
 	}
 	
-	public int[][] creaMatriz(int filas, int columnas, int maxVal) {
+	
+	/**
+	 * Método que crea una matriz ya llena con valores aleatorios
+	 * @param tamanho Tamaño de la matriz que deseamos crear
+	 * @param maxVal Valor máximo de los números aleatorios generados que llenarán la matriz
+	 * @return El método devolverá una matriz de tamaño 'tamanho' ya lleno
+	 * */
+	public int[][] creaMatrizLlena(int filas, int columnas, int maxVal) {
 		int[][]matriz=new int[filas][columnas];
 		return rellenaMatriz(matriz, maxVal);
 	}
 	
+	
+	/**
+	 * Método que imprime los valores de una matriz
+	 * @param matriz Matriz que deseamos imprimir
+	 * */
+	public void imprimeMatriz(int[][]matriz) {
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				System.out.print(matriz[i][j]+" ");
+			}
+			System.out.println("");
+		}
+	}
+	
+	
+	/**
+	 * Método que suma los valores de dos matrices
+	 * @param a Primera matriz que deseamos sumar
+	 * @param b Segunda matriz que deseamos sumar
+	 * @return El método devolverá una matriz con la suma de las dos matrices anteriores
+	 * */
 	public int[][] sumaMatriz(int[][]a, int[][]b) {
 		int nFilas=a.length;
 		int nColumnas=a[0].length;
@@ -375,15 +459,11 @@ public class Amadeus {
 		return suma;
 	}
 	
-	public void imprimeMatriz(int[][]matriz) {
-		for (int i = 0; i < matriz.length; i++) {
-			for (int j = 0; j < matriz[i].length; j++) {
-				System.out.print(matriz[i][j]+" ");
-			}
-			System.out.println("");
-		}
-	}
-	
+	/**
+	 * Método que halla el mayor valor de una matriz
+	 * @param matriz Matriz de la cual deseamos hallar el mayor valor
+	 * @return Retorna el mayor valor de la matriz.
+	 * */
 	public int mayorEnLaMatriz(int[][] matriz) {
 		int aux=matriz[0][0];
 		for (int i = 0; i < matriz.length; i++) {
@@ -395,6 +475,11 @@ public class Amadeus {
 		return aux;
 	}
 	
+	/**
+	 * Método que halla las posiciones del mayor valor de una matriz
+	 * @param matriz Matriz de la cual deseamos hallar las posiciones del mayor valor
+	 * @return Retorna las posiciones del mayor valor de una matriz.
+	 * */
 	public void posicionesMayorEnLaMatriz(int[][] matriz) {
 		int mayor=mayorEnLaMatriz(matriz);
 		System.out.println("El mayor número se encuentra en la/s posición/es: ");
@@ -406,6 +491,11 @@ public class Amadeus {
 		}
 	}
 	
+	/**
+	 * Método que halla el menor valor de una matriz
+	 * @param matriz Matriz de la cual deseamos hallar el menor valor
+	 * @return Retorna el menor valor de la matriz.
+	 * */
 	public int menorEnLaMatriz(int[][] matriz) {
 		int aux=matriz[0][0];
 		for (int i = 0; i < matriz.length; i++) {
@@ -417,6 +507,12 @@ public class Amadeus {
 		return aux;
 	}
 	
+	
+	/**
+	 * Método que halla las posiciones del menor valor de una matriz
+	 * @param matriz Matriz de la cual deseamos hallar las posiciones del menor valor
+	 * @return Retorna las posiciones del menor valor de una matriz.
+	 * */
 	public void posicionesMenorEnLaMatriz(int[][] matriz) {
 		int menor=menorEnLaMatriz(matriz);
 		System.out.println("El menor número se encuentra en la/s posición/es: ");

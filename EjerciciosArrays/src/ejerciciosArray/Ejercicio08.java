@@ -8,7 +8,7 @@ public class Ejercicio08 {
 		// TODO Auto-generated method stub
 
 		Amadeus amadeus=new Amadeus();
-		int[][] matriz = amadeus.creaMatriz(5, 5, 9);
+		int[][] matriz = amadeus.creaMatrizLlena(5, 5, 9);
 		int[] diagonal=new int[matriz.length];
 		
 		System.out.println("MATRIZ ORIGINAL");

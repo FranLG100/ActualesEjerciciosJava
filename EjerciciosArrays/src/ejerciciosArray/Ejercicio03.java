@@ -7,7 +7,7 @@ public class Ejercicio03 {
 		// TODO Auto-generated method stub
 
 		Amadeus amadeus=new Amadeus();
-		int[][] matriz=amadeus.creaMatriz(4, 4, 9);
+		int[][] matriz=amadeus.creaMatrizLlena(4, 4, 9);
 		amadeus.imprimeMatriz(matriz);
 		System.out.println();
 		amadeus.posicionesMayorEnLaMatriz(matriz);
