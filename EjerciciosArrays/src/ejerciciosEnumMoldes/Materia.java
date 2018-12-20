@@ -4,12 +4,11 @@ public class Materia {
 
 	String nombre;
 	int nota;
-	Asignaturas a;
 	
 	public Materia() {};
 	
-	public Materia(String nombre, int nota) {
-		this.nombre=nombre; 
+	public Materia(Asignaturas a, int nota) {
+		this.nombre=a.getAbreviatura(); 
 		this.nota=nota;
 		};
 	

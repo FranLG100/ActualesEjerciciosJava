@@ -1,12 +1,19 @@
 package ejerciciosEnumMoldes;
 
 public enum Asignaturas {
-	MATEMATICAS,
-	LENGUAJE,
-	SOCIALES, 
-	PLASTICA,
-	BIOLOGIA;
+		MATEMATICAS("MAT"),
+		LENGUAJE("LG"),
+		SOCIALES("SOC"), 
+		PLASTICA("PLA"),
+		BIOLOGIA("BIO");
+		
+		private String abreviatura;
 	
-	private int nota;	
-
+		Asignaturas(String abreviatura){
+			this.abreviatura=abreviatura;
+		}
+		
+		public String getAbreviatura() {
+			return abreviatura;
+		}
 }
