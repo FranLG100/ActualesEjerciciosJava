@@ -5,7 +5,7 @@ public class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Materia m1=null;
+		Materia m1=new Materia();
 		m1.setNombre(Asignaturas.BIOLOGIA.name());
 		Materia[] temario= new Materia[3];
 		int i=0;
