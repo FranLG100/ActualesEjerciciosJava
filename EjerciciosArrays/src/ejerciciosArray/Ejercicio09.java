@@ -6,7 +6,9 @@ public class Ejercicio09 {
 		// TODO Auto-generated method stub
 		
 		int[] arrayA= {0,1,2,3,4,5,6,7,8};
-		int[] arrayB= {7,8,9};
+		int[] arrayB= {6,7,8};
+		//Comentar el anterior y descomentar este para probar el caso en el que no.
+		//int[] arrayB= {6,7,8,9};
 		int k=0;
 		boolean contenido=false;
 		
