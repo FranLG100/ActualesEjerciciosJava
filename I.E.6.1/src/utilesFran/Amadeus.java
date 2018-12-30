@@ -427,4 +427,119 @@ public class Amadeus {
 			}
 		}
 	}
+	
+	public int mayorEnFila(int[][] matriz, int fila) {
+		int aux=matriz[fila][0];
+		for (int i = 0; i < matriz.length; i++) {
+			if(matriz[fila][i]>aux)
+				aux=matriz[fila][i];
+		}
+		return aux;
+	}
+	
+	//DA EL NUMERO DE COLUMNA EN EL CUAL ESTÁ
+	public int[] posicionesMayorEnFila(int[][] matriz,int fila) {
+		int aux=mayorEnFila(matriz,fila);
+		int cont=0;
+		int j=0;
+		for (int i = 0; i < matriz.length; i++) {
+			if(aux==matriz[fila][i])
+				cont++;
+		}
+		int[] respuesta=new int[cont];
+		
+		for (int i = 0; i < matriz.length; i++) {
+			if(aux==matriz[fila][i]) {
+				respuesta[j]=i;
+				j++;
+			}
+		}
+		return respuesta;
+	}
+	
+	public int mayorEnColumna(int[][] matriz, int columna) {
+		int aux=matriz[0][columna];
+		for (int i = 0; i < matriz.length; i++) {
+			if(matriz[i][columna]>aux)
+				aux=matriz[i][columna];
+		}
+		return aux;
+	}
+	
+	//DA EL NÚMERO DE FILA EN EL CUAL ESTÁ
+	public int[] posicionesMayorEnColumna(int[][] matriz,int columna) {
+		int aux=mayorEnColumna(matriz,columna);
+		int cont=0;
+		int j=0;
+		for (int i = 0; i < matriz.length; i++) {
+			if(aux==matriz[i][columna])
+				cont++;
+		}
+		int[] respuesta=new int[cont];
+		
+		for (int i = 0; i < matriz.length; i++) {
+			if(aux==matriz[i][columna]) {
+				respuesta[j]=i;
+				j++;
+			}
+		}
+		return respuesta;
+	}
+	
+	public int menorEnFila(int[][] matriz, int fila) {
+		int aux=matriz[fila][0];
+		for (int i = 0; i < matriz.length; i++) {
+			if(matriz[fila][i]<aux)
+				aux=matriz[fila][i];
+		}
+		return aux;
+	}
+	
+	public int[] posicionesMenorEnFila(int[][] matriz,int fila) {
+		int aux=menorEnFila(matriz,fila);
+		int cont=0;
+		int j=0;
+		for (int i = 0; i < matriz.length; i++) {
+			if(aux==matriz[fila][i])
+				cont++;
+		}
+		int[] respuesta=new int[cont];
+		
+		for (int i = 0; i < matriz.length; i++) {
+			if(aux==matriz[fila][i]) {
+				respuesta[j]=i;
+				j++;
+			}
+		}
+		return respuesta;
+	}
+	
+	public int menorEnColumna(int[][] matriz, int columna) {
+		int aux=matriz[0][columna];
+		for (int i = 0; i < matriz.length; i++) {
+			if(matriz[i][columna]<aux)
+				aux=matriz[i][columna];
+		}
+		return aux;
+	}
+	
+	public int[] posicionesMenorEnColumna(int[][] matriz,int columna) {
+		int aux=menorEnColumna(matriz,columna);
+		int cont=0;
+		int j=0;
+		for (int i = 0; i < matriz.length; i++) {
+			if(aux==matriz[i][columna])
+				cont++;
+		}
+		int[] respuesta=new int[cont];
+		
+		for (int i = 0; i < matriz.length; i++) {
+			if(aux==matriz[i][columna]) {
+				respuesta[j]=i;
+				j++;
+			}
+		}
+		return respuesta;
+	}
+	
 }

@@ -83,8 +83,9 @@ public class Tablero {
 
 	public void iniciarBarcos() {
 		do {
-			int aux = random.nextInt(65);
-			String auxString = Integer.toString(aux);
+			int aux1 = random.nextInt(8);
+			int aux2= random.nextInt(8);
+			String auxString = Integer.toString(aux1)+Integer.toString(aux2);
 			if (!barcos.contains(auxString)) {
 				barcos.add(auxString);
 				nBarcosActuales++;
