@@ -59,6 +59,29 @@ public class Amadeus {
 		} while (error || entero < 0);
 		return entero;
 	}
+	
+	public int controlaIntMinMax(int min, int max) throws IOException {
+		int aux=0;
+		if(min>max) {
+			aux=max;
+			max=min;
+			min=aux;
+		}
+		int entero = 0;
+		do {
+			try {
+				entero = Integer.parseInt(entrada.readLine());
+				error = false;
+				if (entero<min || entero>max)
+					System.out.println("Introduzca un valor entre "+min+" y "+max);
+			} catch (NumberFormatException e) {
+				// TODO: handle exception
+				System.out.println("Valor no válido");
+				error = true;
+			}
+		} while (error || entero<min || entero>max);
+		return entero;
+	}
 
 	/**
 	 * Método que aplica solicita la introducción de un dato tipo Integer
@@ -341,6 +364,39 @@ public class Amadeus {
 			inversion[i]=array[array.length-1-i];
 		}
 		return inversion;
+	}
+	
+	public int[] ordenacionAscendenteBurbujaArray(int[] array) {
+		int aux;
+		int mayor = array[0];
+		boolean comprueba = true;
+		while (comprueba) {
+			comprueba = false;
+			for (int j = 0; j < array.length - 1; j++) {
+				if (array[j] > array[j + 1]) {
+					aux = array[j + 1];
+					array[j + 1] = array[j];
+					array[j] = aux;
+					comprueba = true;
+				}
+			}
+		}
+		return array;
+	}
+	
+	public int[] ordenacionDirectaAscendenteArray(int[] array) {
+		int index=0;
+		int aux=0;
+		for (int i = 1; i < array.length; i++) {
+			index=i;
+			aux=array[i];
+			while((index>0)&&(array[index-1]>aux)) {
+				array[index]=array[index-1];
+				index--;
+			}
+			array[index]=aux;
+		}
+		return array;
 	}
 	
 	/*/////////////////////////////////////////////////////////////////////*/
