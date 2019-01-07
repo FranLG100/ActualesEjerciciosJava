@@ -1,5 +1,7 @@
 package ejercicio13;
 
+import java.util.ArrayList;
+
 import utilesFran.Amadeus;
 
 public class PuntoDeSilla {
@@ -9,11 +11,14 @@ public class PuntoDeSilla {
 
 		Amadeus amadeus = new Amadeus();
 
-		int[][] matriz = amadeus.creaMatriz(4, 4, 99);
+		//Descomentar para probar con matrices aleatorias
+		//int[][] matriz = amadeus.creaMatriz(4, 4, 99);
+		//Y comentar esta línea
+		int[][] matriz = {{2,8,8,8},{0,0,0,0},{0,0,0,0},{2,3,3,3}};
 		
 		int aux;
 		int col;
-		int[] respuestas;
+		ArrayList<Integer> respuestas=new ArrayList<Integer>();
 		System.out.println("Esta es nuestra matriz");
 		amadeus.imprimeMatriz(matriz);
 		System.out.println();
@@ -30,23 +35,24 @@ public class PuntoDeSilla {
 			}
 		}*/
 
-		
-		for (int i = 0; i < matriz.length; i++) {
+		//OTRA VERSIÓN BUENA, PERO MENOS EFICIENTE
+		/*for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[i].length; j++) {
 				if (amadeus.menorEnFila(matriz, i) == amadeus.mayorEnColumna(matriz, j)) {
 					System.out.println(matriz[i][j] + "(Posición:[" + i + "," + j + "]" + " es un punto de silla");
 				}
 			}
-		}
-		
-		/*for (int i = 0; i < matriz.length; i++) {
-			aux = amadeus.menorEnFila(matriz, i);
-			respuestas = amadeus.posicionesMenorEnFila(matriz, i);
-			for (int j = 0; j < respuestas.length; j++) {
-				if(aux==amadeus.mayorEnColumna(matriz, respuestas[j]))
-					System.out.println(aux+", fila "+i+" y columna "+respuestas[j]+", es un punto de Silla");
-			}
 		}*/
+		
+		for (int i = 0; i < matriz.length; i++) {
+			aux=amadeus.menorEnFila(matriz, i);
+			for (int j = 0; j < matriz[i].length; j++) {
+				if(aux==matriz[i][j]) {
+					if(aux==amadeus.mayorEnColumna(matriz, j))
+						System.out.println(matriz[i][j] + "(Posición:[" + i + "," + j + "]" + " es un punto de silla");
+				}
+			}
+		}
 		
 		
 		 
