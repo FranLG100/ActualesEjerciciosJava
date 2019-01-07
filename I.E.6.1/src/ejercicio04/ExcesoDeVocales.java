@@ -48,6 +48,8 @@ public class ExcesoDeVocales {
 		}
 		
 		System.out.println("Esa palabra se repite "+contComprobante+" veces");
+		if(sujeto.indexOf(comprobante)>=0)
+			System.out.println("Se encuentra, por primera vez, en la posición "+sujeto.indexOf(comprobante));
 	}
 
 }
