@@ -9,7 +9,7 @@ import utilesFran.Amadeus;
 public class Tablero {
 
 	Amadeus amadeus = new Amadeus();
-	String[][] matriz = new String[8][8];
+	String[][] matriz = new String[8][8]; 
 	ArrayList<String> celdas = new ArrayList<String>();
 	ArrayList<String> barcos = new ArrayList<String>();
 	int fila = 0;

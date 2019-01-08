@@ -10,24 +10,39 @@ import utilesFran.Amadeus;
 public class Casino {
 
 	Amadeus amadeus=new Amadeus();
+	//Random. Para generar los números del bingo.
 	Random random=new Random();
+	//Lista de números. Nuestros números. Servirán para generar el cartón.
 	ArrayList<Integer> misNumeros=new ArrayList<Integer>();
+	//Números de la primera línea del cartón
 	ArrayList<Integer> primeraLinea=new ArrayList<Integer>();
+	//Números de la segunda línea del cartón
 	ArrayList<Integer> segundaLinea=new ArrayList<Integer>();
+	//Números de la tercera línea del cartón
 	ArrayList<Integer> terceraLinea=new ArrayList<Integer>();
+	//Números que han salido del bombo
 	ArrayList<Integer> numerosQueHanSalido=new ArrayList<Integer>();
+	//Variable con múltiples usos auxiliares
 	int aux=0;
+	//Variable útil para utilizar en el menú
 	int opcion=0;
+	//Cartón del bingo. El tamaño será luego especificado.
 	int[][] carton;
+	//Sabremos si ha salido línea o no
 	boolean linea=false;
+	//Para definir si la partida ha terminado o no.
 	boolean victoria=false;
 	
+	/**
+	 * Método que inicia el juego del Bingo.
+	 * */
 	public void jugarBingo() throws IOException {
 		System.out.println("¡Bienvenido! En breve comenzará la partida del Bingo.");
 		System.out.println("Este será su cartón\n");
-		this.carton=comprarCarton();
+		this.carton=comprarCarton(); //Al principio, generamos un cartón para el jugador.
 		System.out.println("\nAhora, ¡Procedamos a jugar!");
 		do {
+			//Le damos la opción a sacar una bola, comprobar qué números han salido, y comprobar el cartón propio
 			System.out.println("Seleccione una opción");
 			System.out.println("1.-Sacar bola del bombo");
 			System.out.println("2.-Comprobar números que han salido");
@@ -50,15 +65,21 @@ public class Casino {
 		System.out.println("¡ENHORABUENA! ¡Has Ganado!");
 	}
 	
+	
+	/**
+	 * Método público que permite generar un cartón de bingo. 15 Números 
+	 * en total. Genera 15 números aleatorios sin repetir que formarán parte de nuestro
+	 * cartón. Los números se ordenarán de menor a mayor por columnas.
+	 * @return carton Array de números que jugamos en esa ronda de Bingo.
+	 * */
 	public int[][] comprarCarton() {
 		int[][] carton = new int[3][5];
-		//for (int i = 0; i < 15; i++) {
+		//Hasta que tengamos 15 números sin repetir, se irán generando números aleatorios
 			do {
 				aux = random.nextInt(100);
 				if (!misNumeros.contains(aux))
 					misNumeros.add(aux);
 			} while (misNumeros.size() < 15);
-		//}
 		Collections.sort(misNumeros);
 		//Quiero ordenar el cartón como se ordena en el bingo.
 		//Por columnas.
@@ -71,13 +92,12 @@ public class Casino {
 			}
 			j++;
 		}
-		/*for (int i = 0; i < carton.length; i++) {
-			for (int j = 0; j < carton[i].length; j++) {
-				carton[i][j]=misNumeros.get(aux);
-				aux++;
-			}
-		}*/
+
+		//Tras ordenarlo, imprimimos el cartón con el método imprimeCartón
 		imprimeCarton(carton);
+		
+		//Por último, llenamos la primera segunda y tercera línea con sus números correspondientes.
+		//Para saber si en algún momento hemos cantado línea.
 		for (int i = 0; i < carton.length; i++) {
 			for (int k = 0; k < carton[i].length; k++) {
 				if(i==0)
@@ -92,24 +112,37 @@ public class Casino {
 
 	}
 	
+	/**
+	 * Método público para sacar una bola del bombo del Bingo.
+	 * No puede sacar una bola que ya haya salido.
+	 * */
 	public void sacarBola() {
 		boolean valido = false;
+		//Evita la repetición de números
 		do {
 			aux = random.nextInt(100);
 			if (!numerosQueHanSalido.contains(aux)) {
-				numerosQueHanSalido.add(aux);
+				numerosQueHanSalido.add(aux); //Lo añadimos a los números que han salido.
 				valido = true;
 			}
 		} while (!valido);
-		valido = false;
+		valido = false; //Vuelve a poner la variable en falso para otros métodos.
 		Collections.sort(numerosQueHanSalido);
 		System.out.println("EL " + aux);
 	}
 	
+	
+	/**
+	 * Imprimimos los números que han salido del bombo.
+	 * */
 	public void imprimirNumerosQueHanSalido() {
 		System.out.println(numerosQueHanSalido.toString());
 	}
 	
+	/**
+	 * Comprobamos las líneas. En el momento en el que se canta una, no se vuelve a cantar.
+	 * 
+	 * */
 	public void comprobarLineas() {
 		if (!linea) {
 			if ((numerosQueHanSalido.containsAll(primeraLinea) || numerosQueHanSalido.containsAll(segundaLinea)
@@ -118,13 +151,16 @@ public class Casino {
 				linea = true;
 			}
 		}
-		if ((numerosQueHanSalido.containsAll(primeraLinea) && numerosQueHanSalido.containsAll(segundaLinea)
-				&& numerosQueHanSalido.containsAll(terceraLinea))) {
+		if (numerosQueHanSalido.containsAll(misNumeros)) {
 			victoria=true;
 		}
 
 	}
 	
+	/**
+	 * Método público que imprime nuestro cartón de números, tachando los que ya tenemos.
+	 * @param carton Nuestro cartón de números.
+	 * */
 	public void imprimeCarton(int[][] carton) {
 		for (int i = 0; i < carton.length; i++) {
 			for (int j = 0; j < carton[i].length; j++) {
