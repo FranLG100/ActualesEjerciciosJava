@@ -8,7 +8,7 @@ public class Caracol {
 		// TODO Auto-generated method stub
 		
 		Amadeus amadeus=new Amadeus();
-		int tamanho=3;
+		int tamanho=5;
 		int contador=1;
 		int principio=0;
 		int fin=tamanho;
