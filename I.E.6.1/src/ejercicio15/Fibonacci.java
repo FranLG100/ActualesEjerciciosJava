@@ -12,6 +12,9 @@ public class Fibonacci {
 		
 	}
 	
+	/**
+	 * Método público que realiza la serie de Fibonacci
+	 * */
 	public static int serieFibonacci(int n){
 
 		if (n==0||n==1)

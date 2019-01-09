@@ -16,9 +16,9 @@ public class PuntoDeSilla {
 		//Y comentar esta línea
 		int[][] matriz = {{2,8,8,8},{0,0,0,0},{0,0,0,0},{2,3,3,3}};
 		
-		int aux;
-		int col;
-		ArrayList<Integer> respuestas=new ArrayList<Integer>();
+		int aux; //Variable auxiliar
+		int col; //Variable para guardar la columna
+		ArrayList<Integer> respuestas=new ArrayList<Integer>(); //Para uno de los ejercicios comentados
 		System.out.println("Esta es nuestra matriz");
 		amadeus.imprimeMatriz(matriz);
 		System.out.println();
@@ -44,10 +44,11 @@ public class PuntoDeSilla {
 			}
 		}*/
 		
+		//Para cada fila, buscamos el menor valor existente y guardamos ese valor en un auxiliar.
 		for (int i = 0; i < matriz.length; i++) {
 			aux=amadeus.menorEnFila(matriz, i);
 			for (int j = 0; j < matriz[i].length; j++) {
-				if(aux==matriz[i][j]) {
+				if(aux==matriz[i][j]) { //Ahora, si el valor coincide en la fila, bloqueamos la columna y comprobamos
 					if(aux==amadeus.mayorEnColumna(matriz, j))
 						System.out.println(matriz[i][j] + "(Posición:[" + i + "," + j + "]" + " es un punto de silla");
 				}
