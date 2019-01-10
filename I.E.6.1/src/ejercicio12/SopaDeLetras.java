@@ -165,6 +165,7 @@ public class SopaDeLetras {
 					valido = true;
 				}
 			}
+			
 		}else
 			valido=false;
 		if (valido) {
