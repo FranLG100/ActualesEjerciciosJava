@@ -709,7 +709,7 @@ public class Amadeus {
 	
 	public int[][] ordenaTodasFilasMatrizAscendente (int[][] matriz) throws IOException{
 		for (int i = 0; i < matriz.length; i++) {
-			ordenaFilaMatrizAscendente(matriz)
+			
 		}
 		
 		return matriz;
