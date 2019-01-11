@@ -18,15 +18,7 @@ public class OrdenarMatriz {
 		System.out.println("\nIntroduzca fila a ordenar");
 		fila=amadeus.controlaIntMinMax(0, 4); //El usuario introducirá una fila, de 0 a 4.
 		
-		for (int i = 0; i < arrayAuxiliar.length; i++) {
-			arrayAuxiliar[i]=matriz[fila][i]; //Introducimos los valores de dicha fila en la matriz auxiliar
-		}
-		
-		arrayAuxiliar=amadeus.ordenacionAscendenteBurbujaArray(arrayAuxiliar); //La ordenamos con el método de la burbuja
-		
-		for (int i = 0; i < arrayAuxiliar.length; i++) { //Una vez ordenado, lo pasamos a la matriz
-			matriz[fila][i]=arrayAuxiliar[i];
-		}
+		matriz=amadeus.ordenaFilaMatrizAscendente(matriz, fila);
 		
 		System.out.println();
 		amadeus.imprimeMatriz(matriz);

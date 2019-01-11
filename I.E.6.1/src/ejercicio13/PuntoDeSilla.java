@@ -14,7 +14,7 @@ public class PuntoDeSilla {
 		//Descomentar para probar con matrices aleatorias
 		//int[][] matriz = amadeus.creaMatriz(4, 4, 99);
 		//Y comentar esta línea
-		int[][] matriz = {{2,8,8,8},{0,0,0,0},{0,0,0,0},{2,3,3,3}};
+		int[][] matriz = {{2,8,4,8},{0,0,0,0},{0,0,0,0},{2,3,3,3}};
 		
 		int aux; //Variable auxiliar
 		int col; //Variable para guardar la columna
