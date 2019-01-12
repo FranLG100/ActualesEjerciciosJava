@@ -9,12 +9,17 @@ public class Factorial {
 
 	}
 	
+	/**
+	 * Método estático que calcula el factorial de un número
+	 * @param num Número entero del cual queremos conocer el factorial
+	 * @return Factorial del número, calculado con este método recursivo
+	 * */
 	public static int CalculaFactorial(int num) {
 
-		if(num==0)
+		if(num==0) 
 			return 1;
 		else
-		return num*CalculaFactorial(num-1);
+		return num*CalculaFactorial(num-1); //Devuelve el número y el propio método llamándose con la misma  variable -1.
 	}
 
 }

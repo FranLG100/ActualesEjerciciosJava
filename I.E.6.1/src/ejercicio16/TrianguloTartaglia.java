@@ -18,6 +18,11 @@ public class TrianguloTartaglia {
 
 	  
 
+	  /**
+		 * Método público que realiza el triángulo de Tartaglia
+		 *@param i Fila en la cual nos encontramos
+		 *@param j Columna en la cual nos encontramos
+		 * */
 	  public static int Tartaglia(int i, int j) {
 	    if (j == 0 || j == i) {
 	      return 1;

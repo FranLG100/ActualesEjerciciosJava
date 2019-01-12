@@ -384,6 +384,24 @@ public class Amadeus {
 		return array;
 	}
 	
+	public int[] ordenacionDescendenteBurbujaArray(int[] array) {
+		int aux;
+		int mayor = array[0];
+		boolean comprueba = true;
+		while (comprueba) {
+			comprueba = false;
+			for (int j = 0; j < array.length - 1; j++) {
+				if (array[j] < array[j + 1]) {
+					aux = array[j + 1];
+					array[j + 1] = array[j];
+					array[j] = aux;
+					comprueba = true;
+				}
+			}
+		}
+		return array;
+	}
+	
 	public int[] ordenacionDirectaAscendenteArray(int[] array) {
 		int index=0;
 		int aux=0;
@@ -391,6 +409,21 @@ public class Amadeus {
 			index=i;
 			aux=array[i];
 			while((index>0)&&(array[index-1]>aux)) {
+				array[index]=array[index-1];
+				index--;
+			}
+			array[index]=aux;
+		}
+		return array;
+	}
+	
+	public int[] ordenacionDirectaDescendenteArray(int[] array) {
+		int index=0;
+		int aux=0;
+		for (int i = 1; i < array.length; i++) {
+			index=i;
+			aux=array[i];
+			while((index>0)&&(array[index-1]<aux)) {
 				array[index]=array[index-1];
 				index--;
 			}
@@ -596,6 +629,90 @@ public class Amadeus {
 			}
 		}
 		return respuesta;
+	}
+	
+	public int[][] ordenaFilaMatrizAscendente(int[][] matriz, int fila) throws IOException{
+		if(fila>=matriz.length || fila<0) {
+			System.out.println("Esa fila no existe, introduzca una nueva");
+			fila=controlaIntMinMax(0,matriz.length-1);
+		}
+		int[] arrayAuxiliar=new int[matriz.length];
+		for (int i = 0; i < arrayAuxiliar.length; i++) {
+			arrayAuxiliar[i]=matriz[fila][i];
+		}
+		
+		arrayAuxiliar=ordenacionDirectaAscendenteArray(arrayAuxiliar);
+		
+		for (int i = 0; i < arrayAuxiliar.length; i++) {
+			matriz[fila][i]=arrayAuxiliar[i];
+		}
+		
+		return matriz;
+	}
+	
+	public int[][] ordenaFilaMatrizDescendente(int[][] matriz, int fila) throws IOException{
+		if(fila>=matriz.length || fila<0) {
+			System.out.println("Esa fila no existe, introduzca una nueva");
+			fila=controlaIntMinMax(0,matriz.length-1);
+		}
+		int[] arrayAuxiliar=new int[matriz.length];
+		for (int i = 0; i < arrayAuxiliar.length; i++) {
+			arrayAuxiliar[i]=matriz[fila][i];
+		}
+		
+		arrayAuxiliar=ordenacionDirectaDescendenteArray(arrayAuxiliar);
+		
+		for (int i = 0; i < arrayAuxiliar.length; i++) {
+			matriz[fila][i]=arrayAuxiliar[i];
+		}
+		
+		return matriz;
+	}
+	
+	public int[][] ordenaColumnaMatrizAscendente(int[][] matriz, int columna) throws IOException{
+		if(columna>=matriz[0].length || columna<0) {
+			System.out.println("Esa fila no existe, introduzca una nueva");
+			columna=controlaIntMinMax(0,matriz[0].length-1);
+		}
+		int[] arrayAuxiliar=new int[matriz.length];
+		for (int i = 0; i < arrayAuxiliar.length; i++) {
+			arrayAuxiliar[i]=matriz[i][columna];
+		}
+		
+		arrayAuxiliar=ordenacionDirectaAscendenteArray(arrayAuxiliar);
+		
+		for (int i = 0; i < arrayAuxiliar.length; i++) {
+			matriz[i][columna]=arrayAuxiliar[i];
+		}
+		
+		return matriz;
+	}
+	
+	public int[][] ordenaColumnaMatrizDescendente(int[][] matriz, int columna) throws IOException{
+		if(columna>=matriz[0].length || columna<0) {
+			System.out.println("Esa fila no existe, introduzca una nueva");
+			columna=controlaIntMinMax(0,matriz[0].length-1);
+		}
+		int[] arrayAuxiliar=new int[matriz.length];
+		for (int i = 0; i < arrayAuxiliar.length; i++) {
+			arrayAuxiliar[i]=matriz[i][columna];
+		}
+		
+		arrayAuxiliar=ordenacionDirectaDescendenteArray(arrayAuxiliar);
+		
+		for (int i = 0; i < arrayAuxiliar.length; i++) {
+			matriz[i][columna]=arrayAuxiliar[i];
+		}
+		
+		return matriz;
+	}
+	
+	public int[][] ordenaTodasFilasMatrizAscendente (int[][] matriz) throws IOException{
+		for (int i = 0; i < matriz.length; i++) {
+			
+		}
+		
+		return matriz;
 	}
 	
 }
