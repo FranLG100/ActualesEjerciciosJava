@@ -18,7 +18,7 @@ public class OrdenarMatriz {
 		System.out.println("\nIntroduzca fila a ordenar");
 		fila=amadeus.controlaIntMinMax(0, 4); //El usuario introducirá una fila, de 0 a 4.
 		
-		matriz=amadeus.ordenaFilaMatrizAscendente(matriz, fila);
+		matriz=amadeus.ordenaFilaMatrizAscendente(matriz,fila);
 		
 		System.out.println();
 		amadeus.imprimeMatriz(matriz);
