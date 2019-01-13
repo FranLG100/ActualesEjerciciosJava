@@ -963,4 +963,127 @@ public class Amadeus {
 		
 		return matriz;
 	}
+	
+	/**
+	 * Método público que comprueba si un array está contenido en una columna de una 
+	 * matriz.
+	 * @param matriz Matriz en la cual queremos comprobar si el array está contenido
+	 * @param array Array que queremos comprobar si está contenido
+	 * @return  <ul>
+	 * 			<li>La columna en la cual se encuentra el array, en caso de estar contenido.</li>
+	 * 			<li>-1 en caso de no estar contenida en ninguna columna</li>
+	 * 			</ul>
+	 * */
+	public int comprobarColumnaContenida(int[][] matriz, int[] array) {
+		int index=0;
+		int coincidencia=0;
+		int aux=0;
+		int columna=0;
+		boolean parar=false;
+		
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				index=0;
+				aux=i;
+				//Comprueba las coincidencias entre columna y array a partir de la primera.
+				//Está calculado, con la última expresión, para que no se desborde el array.
+				//Si se completan todas las coincidencias, está contenido.
+				while((index<array.length)&&(array[index]==matriz[aux][j])&&((array.length-i)>(array.length-1))) {
+					coincidencia++;
+					index++;
+					aux++;
+				}
+				if (coincidencia==array.length) {
+					System.out.println("\nEl array se encuentra en la columna "+j);
+					parar=true;
+					columna=j;
+					break;
+				}else
+					coincidencia=0;
+			}
+			if(parar) {
+				break;
+				}
+			
+		}
+		if(parar)
+			return columna;
+		else
+			return -1;
+
+	}
+	
+	/**
+	 * Método público que comprueba si un array está contenido en una fila de una 
+	 * matriz.
+	 * @param matriz Matriz en la cual queremos comprobar si el array está contenido
+	 * @param array Array que queremos comprobar si está contenido
+	 * @return  <ul>
+	 * 			<li>La fila en la cual se encuentra el array, en caso de estar contenido.</li>
+	 * 			<li>-1 en caso de no estar contenida en ninguna fila</li>
+	 * 			</ul>
+	 * */
+	public int comprobarFilaContenida(int[][] matriz, int[] array) {
+		int index=0;
+		int coincidencia=0;
+		int aux=0;
+		int fila=0;
+		boolean parar=false;
+		
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				index=0;
+				aux=j;
+				while((index<array.length)&&(array[index]==matriz[i][aux])&&((array.length-j)>(array.length-1))) {
+					coincidencia++;
+					index++;
+					aux++;
+				}
+				if (coincidencia==array.length) {
+					System.out.println("\nEl array se encuentra en la fila "+i);
+					parar=true;
+					fila=i;
+					break;
+				}else
+					coincidencia=0;
+			}
+			if(parar)
+				break;
+			
+		}
+		if(parar)
+			return fila;
+		else
+			return -1;
+
+	}
+	
+	/**
+	 * Método público que extrae una fila concreta de una matriz
+	 * @param matriz Matriz de la cual queremos extraer la Fila
+	 * @param fila Fila en concreto que queremos extraer
+	 * @return Fila ya extraída en un array
+	 * */
+	public int[] extraeFila (int[][] matriz, int fila) {
+		int[] arrayAuxiliar=new int[matriz[0].length];
+		for (int i = 0; i < matriz[0].length; i++) {
+			arrayAuxiliar[i]=matriz[fila][i];
+		}
+		return arrayAuxiliar;
+	}
+	
+	
+	/**
+	 * Método público que extrae una columna concreta de una matriz
+	 * @param matriz Matriz de la cual queremos extraer la Columna
+	 * @param columna Columna en concreto que queremos extraer
+	 * @return Columna ya extraída en un array
+	 * */
+	public int[] extraeColumna (int[][] matriz, int columna) {
+		int[] arrayAuxiliar=new int[matriz.length];
+		for (int i = 0; i < matriz.length; i++) {
+			arrayAuxiliar[i]=matriz[i][columna];
+		}
+		return arrayAuxiliar;
+	}
 }

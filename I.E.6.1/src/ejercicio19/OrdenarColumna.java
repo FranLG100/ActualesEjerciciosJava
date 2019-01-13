@@ -14,31 +14,23 @@ public class OrdenarColumna {
 		int tamanho=5;
 		//int[][] matriz=new int[tamanho][tamanho];
 		//int[] array=new int[tamanho];
+		
+		//Hemos hecho una matriz ya predefinida para comprobar que el siguiente array
+		//se encuentra contenida en ella. En otro caso, sería complicado que aleatoriamente
+		//saliese
 		int[][] matriz={{1,2,3,5,4},{1,2,4,8,5},{0,5,2,2,3},{5,8,2,4,0},{1,5,7,0,3}};
 		int[] array={5,8,2,4,0};
 		int[] arrayAuxiliar=new int[tamanho];
-		int index=0;
-		int coincidencia=0;
-		
+
+
 		System.out.println("Array generado:");
 		amadeus.imprimeArray(array);
 		System.out.println("\n\nMatriz generada:");
 		amadeus.imprimeMatriz(matriz);
 		
-		for (int i = 0; i < matriz.length; i++) {
-			index=0;
-			while((index<matriz.length)&&(array[index]==matriz[i][index])) {
-				coincidencia++;
-				index++;	
-			}
-			if (coincidencia==matriz.length) {
-				System.out.println("\nEl array se encuentra en la columna "+i);
-				columna=i;
-				break;
-			}else
-				coincidencia=0;
-		}
+		columna=amadeus.comprobarColumnaContenida(matriz, array);
 		
+		if(columna>=0) {
 		System.out.println("¿Cómo desea ordenarla?");
 		System.out.println("1.-Método de la burbuja");
 		System.out.println("2.-Método de inserción directa");
@@ -58,6 +50,7 @@ public class OrdenarColumna {
 		}
 		
 		amadeus.imprimeMatriz(matriz);
+		}
 		
 		
 	}

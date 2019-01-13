@@ -18,11 +18,13 @@ public class OrdenarMatriz {
 		System.out.println("\nIntroduzca fila a ordenar");
 		fila=amadeus.controlaIntMinMax(0, 4); //El usuario introducirá una fila, de 0 a 4.
 		
+		//Y dicha fila será ordenada
 		matriz=amadeus.ordenaFilaMatrizAscendente(matriz,fila);
 		
 		System.out.println();
 		amadeus.imprimeMatriz(matriz);
 		
+		//Posteriormente, se ordenará la diagonal
 		System.out.println("\nAhora ordenaremos la diagonal");
 		
 		for (int i = 0; i < arrayAuxiliar.length; i++) {
