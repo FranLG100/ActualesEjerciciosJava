@@ -5,17 +5,28 @@ import utilesFran.Amadeus;
 public class Persona {
 	
 	private Amadeus amadeus=new Amadeus();
-	private static int id=0;
+	private static int id=1;
+	private int idPersona=0;
 	private String nombre;
 	private String apellido;
 	private int altura;
 	
 	
 	public Persona(String nombre, String apellido, int altura) {
-		this.id = id++;
+		this.idPersona = id++;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.altura = altura;
+	}
+
+
+	public int getIdPersona() {
+		return idPersona;
+	}
+
+
+	public void setIdPersona(int idPersona) {
+		this.idPersona = idPersona;
 	}
 
 
@@ -48,6 +59,10 @@ public class Persona {
 		this.altura = altura;
 	}
 	
+	@Override
+	public String toString() {
+		return "\nID: "+idPersona+"\nNombre: "+nombre+"\nApellido: "+apellido+"\nAltura: "+altura+"cm";
+	}
 	
 	
 	
