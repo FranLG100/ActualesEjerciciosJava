@@ -8,13 +8,12 @@ import utilesFran.Amadeus;
 public class Venta {
 	
 	private Amadeus amadeus=new Amadeus();
-	private String[] meses= {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
 	private String mes;
 	private int venta;
 	private boolean match=false;
 	
 	public Venta(String mes, int venta) throws IOException {
-		do {
+		/*do {
 			for (int i = 0; i < meses.length; i++) {
 				if (mes.equalsIgnoreCase(meses[i])) {
 					match = true;
@@ -25,7 +24,7 @@ public class Venta {
 				System.out.println("Introduzca un mes válido");
 				mes = amadeus.recibeTexto();
 			}
-		} while (!match);
+		} while (!match);*/
 		this.mes = mes;
 		this.venta = venta;
 		match=false;
@@ -36,7 +35,7 @@ public class Venta {
 	}
 
 	public void setMes(String mes) throws IOException {
-		do {
+		/*do {
 			for (int i = 0; i < meses.length; i++) {
 				if (mes.equalsIgnoreCase(meses[i])) {
 					match = true;
@@ -47,7 +46,7 @@ public class Venta {
 				System.out.println("Introduzca un mes válido");
 				mes = amadeus.recibeTexto();
 			}
-		} while (!match);
+		} while (!match);*/
 		this.mes = mes;
 		match=false;
 	}
@@ -59,20 +58,13 @@ public class Venta {
 	public void setVenta(int venta) {
 		this.venta = venta;
 	}
-
-	public String[] getMeses() {
-		return meses;
-	}
-
-	public void setMeses(String[] meses) {
-		this.meses = meses;
-	}
 	
 	@Override
 	public String toString() {
-		return "\nMes: "+mes+"\nVentas: "+venta+"\n";
+		return "\nMes: "+mes+"\nVentas: "+venta+"€\n";
 	}
 	
+
 	
 	
 	
