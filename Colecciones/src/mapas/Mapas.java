@@ -34,6 +34,9 @@ public class Mapas {
 			System.out.println("DNI:"+dni+pe.toString()+"\n");
 			
 		}
+		
+		//Esta clave no existe, saldrá un resultado nulo
+		System.out.println(map.get("28826344Q"));
 	}
 
 }
