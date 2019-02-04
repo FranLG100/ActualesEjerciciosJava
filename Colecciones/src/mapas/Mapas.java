@@ -11,7 +11,10 @@ public class Mapas {
 		// TODO Auto-generated method stub
 		
 		Amadeus amadeus=new Amadeus();
+		//Mapa desordenado
 		HashMap<String,Persona> map=new HashMap<String,Persona>();
+		//Mapa ordenado por key
+		//TreeMap<String,Persona> map=new TreeMap<String,Persona>();
 		Persona p=null;
 		
 		p = new Persona("28823344Q", "Francisco", "Lorente", 210);
@@ -23,6 +26,10 @@ public class Mapas {
 		map.put(p.getDni(), p);
 
 		p = new Persona("426482431Q", "Pacheca", "Domínguez", 158);
+
+		map.put(p.getDni(), p);
+		
+		p = new Persona("426482431Q", "Doña Pacheca", "Ramirez", 158);
 
 		map.put(p.getDni(), p);
 		
