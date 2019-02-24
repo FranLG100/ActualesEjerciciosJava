@@ -9,9 +9,7 @@ public class MainCuenta {
 
 		
 		MenuCuenta menu=new MenuCuenta();
-		menu.crearCuentaAhorro();
-		menu.crearCuentaCorriente();
-		menu.listarCuentas();
+		menu.arrancaMenu();
 	}
 
 }

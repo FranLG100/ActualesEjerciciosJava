@@ -4,18 +4,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 import utilesFran.Amadeus;
 
 public class MenuCuenta {
 
 	private Amadeus amadeus=new Amadeus();
-	private HashMap<Long,Cuenta> cuentas=new HashMap<Long,Cuenta>();
+	private TreeMap<Long,Cuenta> cuentas=new TreeMap<Long,Cuenta>();
 	
 	public MenuCuenta() {}
 	
-	public void arrancaMenu() {
-		
+	public void arrancaMenu() throws IOException {
+		int option = 0;
+		do {
 		System.out.println("Bienvenidos al banco Frantander");
 		System.out.println("Escoja una opción");
 		System.out.println("1.-Crear Cuenta Ahorro");
@@ -27,6 +29,39 @@ public class MenuCuenta {
 		System.out.println("7.-Cambiar interés");
 		System.out.println("8.-Listar Cuentas");
 		System.out.println("9.-Salir");
+		
+		option=amadeus.controlaIntMinMax(1, 9);
+		
+		switch (option) {
+		case 1:
+			crearCuentaAhorro();
+			break;
+		case 2:
+			crearCuentaCorriente();
+			break;
+		case 3:
+			ingresarSaldo();
+			break;
+		case 4:
+			retirarSaldo();
+			break;
+		case 5:
+			actualizarSaldo();
+			break;
+		case 6:
+			consultarCuenta();
+			break;
+		case 7:
+			cambiarInteres();
+			break;
+		case 8:
+			listarCuentas();
+			break;
+		default:
+			break;
+		}
+		
+		}while(option!=9);
 		
 	}
 	
@@ -45,8 +80,13 @@ public class MenuCuenta {
 		dni=amadeus.recibeTexto();
 		dni=amadeus.compruebaNIF(dni);
 		
-		System.out.println("Introduzca número de cuenta");
-		ncuenta=amadeus.controlaIntPositivo();
+		do {
+			System.out.println("Introduzca número de cuenta");
+			ncuenta=amadeus.controlaIntPositivo();
+			if(cuentas.containsKey(ncuenta))
+				System.out.println("Esa cuenta ya existe, introduzca otro número de cuenta");
+			}while(cuentas.containsKey(ncuenta));
+		
 		System.out.println("Introduzca interés variable");
 		interes=amadeus.controlaDoublePorcentaje();
 		System.out.println("Introduzca saldo mínimo");
@@ -72,14 +112,83 @@ public class MenuCuenta {
 		dni=amadeus.recibeTexto();
 		dni=amadeus.compruebaNIF(dni);
 		
+		do {
 		System.out.println("Introduzca número de cuenta");
 		ncuenta=amadeus.controlaIntPositivo();
+		if(cuentas.containsKey(ncuenta))
+			System.out.println("Esa cuenta ya existe, introduzca otro número de cuenta");
+		}while(cuentas.containsKey(ncuenta));
 		
 		Cliente c=new Cliente(dni, nombre, apellidos);
 		CuentaCorriente cc=new CuentaCorriente(c, ncuenta);
 		
 		cuentas.put(ncuenta, cc);
 		
+	}
+	
+	public void ingresarSaldo() throws IOException {
+		long ncuenta;
+		System.out.println("Introduzca número de cuenta");
+		ncuenta=amadeus.controlaIntPositivo();
+		if(cuentas.containsKey(ncuenta)) {
+			System.out.println("Introduzca saldo a añadir");
+			double saldo=amadeus.controlaDoublePositivo();
+			cuentas.get(ncuenta).ingresarSaldo(saldo);
+		}else {
+			System.out.println("Cuenta inexistente");
+		}
+	}
+	
+	public void retirarSaldo() throws IOException {
+		long ncuenta;
+		System.out.println("Introduzca número de cuenta");
+		ncuenta=amadeus.controlaIntPositivo();
+		if(cuentas.containsKey(ncuenta)) {
+			System.out.println("Introduzca saldo a retirar");
+			double saldo=amadeus.controlaDoublePositivo();
+			cuentas.get(ncuenta).retirarSaldo(saldo);
+		}else {
+			System.out.println("Cuenta inexistente");
+		}
+	}
+	
+	public void actualizarSaldo() throws IOException {
+		long ncuenta;
+		System.out.println("Introduzca número de cuenta");
+		ncuenta=amadeus.controlaIntPositivo();
+		if(cuentas.containsKey(ncuenta)) {
+			cuentas.get(ncuenta).actualizarSaldo();
+		}else {
+			System.out.println("Cuenta inexistente");
+		}
+	}
+	
+	public void consultarCuenta() throws IOException {
+		long ncuenta;
+		System.out.println("Introduzca número de cuenta");
+		ncuenta=amadeus.controlaIntPositivo();
+		if(cuentas.containsKey(ncuenta)) {
+			System.out.println(cuentas.get(ncuenta));
+		}else {
+			System.out.println("Cuenta inexistente");
+		}
+	}
+	
+	public void cambiarInteres() throws IOException {
+		long ncuenta;
+		System.out.println("Introduzca número de cuenta");
+		ncuenta=amadeus.controlaIntPositivo();
+		if(cuentas.containsKey(ncuenta)) {
+			if(cuentas.get(ncuenta) instanceof CuentaAhorro) {
+				System.out.println("Introduzca nuevo interés");
+				double porcentaje=amadeus.controlaDoublePorcentaje();
+				((CuentaAhorro)(cuentas.get(ncuenta))).setInteres(porcentaje);
+			}else {
+				System.out.println("Una cuenta Corriente no tiene un interés variable");
+			}
+		}else {
+			System.out.println("Cuenta inexistente");
+		}
 	}
 	
 	public void listarCuentas() {
