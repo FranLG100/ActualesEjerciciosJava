@@ -32,19 +32,36 @@ public class Directivo extends Empleado implements Calculos{
 	@Override
 	public double retencion() {
 		// TODO Auto-generated method stub
-		return 0;
+		if(calcularSueldo()>=2500)
+			return calcularSueldo()*0.2;
+		
+		else if(calcularSueldo()>=1500)
+			return calcularSueldo()*0.18;
+		
+		else if(calcularSueldo()>=1000)
+			return calcularSueldo()*0.15;
+		
+		else 
+			return calcularSueldo()*0.12;
 	}
 
 	@Override
 	public double gratificacion(int nhijos) {
 		// TODO Auto-generated method stub
-		return 0;
+		if(nhijos>3)
+			return 300;
+		else if(nhijos>=1)
+			return 200;
+		else
+			return 0;
 	}
 
 	@Override
 	public double calcular() {
 		// TODO Auto-generated method stub
-		return 0;
+		System.out.println("Introduzca número de hijos del empleado");
+		int nhijos=0;
+		return calcularSueldo()-retencion()+gratificacion(nhijos);
 	}
 
 	public double getSueldo() {
