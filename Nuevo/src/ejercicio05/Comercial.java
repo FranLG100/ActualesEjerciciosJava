@@ -5,7 +5,6 @@ public class Comercial extends Empleado {
 	private double sueldoBruto;
 	private double importeVentas;
 	
-	
 	public Comercial() {
 	}
 
@@ -49,7 +48,6 @@ public class Comercial extends Empleado {
 	public void setImporteVentas(double importeVentas) {
 		this.importeVentas = importeVentas;
 	}
-
 	
 	
 }
