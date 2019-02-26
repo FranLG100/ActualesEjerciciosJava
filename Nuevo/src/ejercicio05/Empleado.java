@@ -70,4 +70,14 @@ public abstract class Empleado implements Calculos {
 		return calcularSueldo()-retencion()+gratificacion(nhijos);
 	}
 
+	public int getNhijos() {
+		return nhijos;
+	}
+
+	public void setNhijos(int nhijos) {
+		this.nhijos = nhijos;
+	}
+	
+	
+
 }

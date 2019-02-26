@@ -17,6 +17,9 @@ public class Directivo extends Empleado{
 		this.comision=comision;
 	}
 
+	public String toString() {
+		return super.toString()+"\nSueldo base: "+sueldo+"\nComisión: "+comision;
+	}
 	
 	@Override
 	public double calcularSueldo() {

@@ -19,6 +19,9 @@ public class Comercial extends Empleado {
 		this.sueldoBruto=sueldoBruto;
 	}
 
+	public String toString() {
+		return super.toString()+"\nSueldo bruto: "+sueldoBruto+"\nImporte de las Ventas: "+importeVentas;
+	}
 
 	@Override
 	public double calcularSueldo() {
