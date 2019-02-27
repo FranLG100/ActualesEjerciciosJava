@@ -18,7 +18,7 @@ public class EmpleadoPorComision extends Empleado{
 
 	@Override
 	public double ingresos() {
-		return ventasBrutas*tarifaComision;	
+		return ventasBrutas*tarifaComision/100;	
 	}
 
 	public double getTarifaComision() {

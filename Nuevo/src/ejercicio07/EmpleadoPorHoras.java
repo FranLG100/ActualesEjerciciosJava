@@ -12,7 +12,7 @@ public class EmpleadoPorHoras extends Empleado {
 	
 	public EmpleadoPorHoras(String primerNombre, String apellidoPaterno, String nss,double sueldo,int nHoras) throws IOException {
 		super(primerNombre, apellidoPaterno, nss);
-		setSueldoHora(sueldoHora);
+		setSueldoHora(sueldo);
 		setnHoras(nHoras);
 	}
 
