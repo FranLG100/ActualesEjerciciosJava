@@ -1,15 +1,24 @@
 package ejercicio07;
 
-public class EmpleadoBaseMasComision extends Empleado {
+import java.io.IOException;
 
-	public EmpleadoBaseMasComision(String primerNombre, String apellidoPaterno, String nss) {
-		super(primerNombre, apellidoPaterno, nss);
-		// TODO Auto-generated constructor stub
+public class EmpleadoBaseMasComision extends EmpleadoPorComision {
+
+	private double salarioBase;
+	
+	
+	public EmpleadoBaseMasComision(String primerNombre, String apellidoPaterno, String nss,double tarifaComision, double ventasBrutas, double salarioBase) throws IOException {
+		super(primerNombre, apellidoPaterno, nss, tarifaComision, ventasBrutas);
+		this.salarioBase=salarioBase;
 	}
 
 	@Override
 	public double ingresos() {
-		return 0;
+		return super.ingresos()+salarioBase;
+	}
+	
+	public String toString() {
+		return super.toString()+"\nSalario Base: "+salarioBase;
 	}
 
 }
