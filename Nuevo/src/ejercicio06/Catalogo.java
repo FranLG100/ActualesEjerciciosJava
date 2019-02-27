@@ -19,7 +19,7 @@ public class Catalogo {
 		else {
 			if(obra instanceof Escultura) {
 				for (Map.Entry<Integer, Obra> escultura : catalogo.entrySet()) {
-					if(escultura instanceof Escultura) {
+					if(escultura.getValue() instanceof Escultura) {
 						if(((Escultura) escultura.getValue()).equalsEscultura((Escultura)obra)) {
 							System.out.println("Ya tenemos una obra con esas características en nuestro museo.");
 							System.out.println("¿Está intentando incluir una falsificación?");
@@ -31,7 +31,7 @@ public class Catalogo {
 			
 			if(obra instanceof Pintura) {
 				for (Map.Entry<Integer, Obra> pintura : catalogo.entrySet()) {
-					if(pintura instanceof Pintura) {
+					if(pintura.getValue() instanceof Pintura) {
 						if(((Pintura) pintura.getValue()).equalsPintura((Pintura)obra)) {
 							System.out.println("Ya tenemos una obra con esas características en nuestro museo.");
 							System.out.println("¿Está intentando incluir una falsificación?");
@@ -88,5 +88,23 @@ public class Catalogo {
 		
 		System.out.println("La escultura más alta del museo es la obra nº"+aux);
 	}
+
+	public TreeMap<Integer, Obra> getCatalogo() {
+		return catalogo;
+	}
+
+	public void setCatalogo(TreeMap<Integer, Obra> catalogo) {
+		this.catalogo = catalogo;
+	}
+
+	public boolean isError() {
+		return error;
+	}
+
+	public void setError(boolean error) {
+		this.error = error;
+	}
+	
+	
 	
 }
