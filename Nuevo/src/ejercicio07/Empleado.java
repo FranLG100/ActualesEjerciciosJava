@@ -14,7 +14,7 @@ public abstract class Empleado {
 	
 	
 	
-	public abstract void ingresos();
+	public abstract double ingresos();
 
 	@Override
 	public String toString() {
