@@ -32,15 +32,22 @@ public class Main {
 		publicaciones.add(r3);
 		publicaciones.add(r4);
 		
+		System.out.println("\n-------------------------------------");
 		System.out.println("Listemos todas nuestras publicaciones");
+		System.out.println("-------------------------------------");
 		for (Publicacion publicacion : publicaciones) {
 			System.out.println(publicacion);
 		}
 		
-		System.out.println("\n\nListemos nuestas publicaciones prestadas");
+		System.out.println("\n-------------------------------------");
+		System.out.println("Listemos nuestas publicaciones prestadas");
+		System.out.println("-------------------------------------");
+		System.out.println();
 		cuentaPrestado(publicaciones);
 		
-		System.out.println("\n\nPublicaciones anteriores a 1990");
+		System.out.println("\n\n-------------------------------------");
+		System.out.println("Publicaciones anteriores a 1990");
+		System.out.println("-------------------------------------");
 		publicacionesAnterioresA(publicaciones,1990);
 		
 		
@@ -50,11 +57,13 @@ public class Main {
 		int cuenta=0;
 		for (Publicacion publicacion : publicaciones) {
 			if(publicacion instanceof Libro) {
-				if(((Libro) publicacion).prestado())
+				if(((Libro) publicacion).prestado()) {
+					System.out.println(publicacion);
 					cuenta++;
+				}
 			}
 		}
-		System.out.println("Hay prestadas "+cuenta+" publicaciones.");
+		System.out.println("\n\nHay prestadas "+cuenta+" publicaciones.");
 	}
 	
 	public static void publicacionesAnterioresA(ArrayList<Publicacion> publicaciones, int anho) {

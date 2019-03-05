@@ -2,6 +2,7 @@ package ejercicio01;
 
 public class CuentaCorriente extends Cuenta{
 
+	//El interés será fijo durante todo el proceso.
 	final private double interes=1.5;
 
 	public CuentaCorriente(Cliente cliente, long numerocuenta) {

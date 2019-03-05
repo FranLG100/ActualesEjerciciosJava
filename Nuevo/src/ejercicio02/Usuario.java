@@ -20,10 +20,16 @@ public class Usuario {
 		this.email=email;
 	}
 	
+	/**
+	 * Método que incrementa el número de mensajes
+	 * */
 	public void incrementMsg() {
 		mensajes++;
 	}
 	
+	/**
+	 * Método que decrementa el número de mensajes
+	 * */
 	public void decrementMsg() {
 		if(mensajes==0)
 			System.out.println("Se ha llegado al mínimo de mensajes");

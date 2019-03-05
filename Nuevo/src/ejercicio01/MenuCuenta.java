@@ -65,10 +65,13 @@ public class MenuCuenta {
 		
 	}
 	
+	/**
+	 * Método que crea una cuenta ahorro. Crea la cuenta y el cliente.
+	 * */
 	public void crearCuentaAhorro() throws IOException {
 		long ncuenta;
 		double interes;
-		double saldoMin;
+		double saldoMin; //saldoMínimo
 		String nombre;
 		String apellidos;
 		String dni;
@@ -80,6 +83,8 @@ public class MenuCuenta {
 		dni=amadeus.recibeTexto();
 		dni=amadeus.compruebaNIF(dni);
 		
+		//Se crea una cuenta. Si el número de cuenta ya está en el treemap de cuentas, se 
+		//pedirá ingresar otro número
 		do {
 			System.out.println("Introduzca número de cuenta");
 			ncuenta=amadeus.controlaIntPositivo();
@@ -95,10 +100,15 @@ public class MenuCuenta {
 		Cliente c=new Cliente(dni, nombre, apellidos);
 		CuentaAhorro ca=new CuentaAhorro(c, ncuenta, interes, saldoMin);
 		
+		//Finalmente, ponemos la cuenta en el treemap.
 		cuentas.put(ncuenta, ca);
 		
 	}
 	
+	/**
+	 * Método que crea una cuenta corriente. Crea la cuenta y el cliente.
+	 * El interés es fijo.
+	 * */
 	public void crearCuentaCorriente() throws IOException {
 		long ncuenta;
 		String nombre;
@@ -112,6 +122,8 @@ public class MenuCuenta {
 		dni=amadeus.recibeTexto();
 		dni=amadeus.compruebaNIF(dni);
 		
+		//Se crea una cuenta. Si el número de cuenta ya está en el treemap de cuentas, se 
+		//pedirá ingresar otro número
 		do {
 		System.out.println("Introduzca número de cuenta");
 		ncuenta=amadeus.controlaIntPositivo();
@@ -126,6 +138,9 @@ public class MenuCuenta {
 		
 	}
 	
+	/**
+	 * Ingresamos saldo en una cuenta existente.
+	 * */
 	public void ingresarSaldo() throws IOException {
 		long ncuenta;
 		System.out.println("Introduzca número de cuenta");
@@ -139,6 +154,9 @@ public class MenuCuenta {
 		}
 	}
 	
+	/**
+	 * Retiramos saldo de una cuenta existente
+	 * */
 	public void retirarSaldo() throws IOException {
 		long ncuenta;
 		System.out.println("Introduzca número de cuenta");
@@ -152,6 +170,9 @@ public class MenuCuenta {
 		}
 	}
 	
+	/**
+	 * Actualizamos el saldo (aplicando interés) de una cuenta existente.
+	 * */
 	public void actualizarSaldo() throws IOException {
 		long ncuenta;
 		System.out.println("Introduzca número de cuenta");
@@ -163,6 +184,9 @@ public class MenuCuenta {
 		}
 	}
 	
+	/**
+	 * Consultamos el estado de una cuenta
+	 * */
 	public void consultarCuenta() throws IOException {
 		long ncuenta;
 		System.out.println("Introduzca número de cuenta");
@@ -174,6 +198,11 @@ public class MenuCuenta {
 		}
 	}
 	
+	
+	/**
+	 * Cambiamos el interés de una cuenta. Si es una cuenta corriente, 
+	 * se nos notificará que no es posible realizar eso (interés fijo)
+	 * */
 	public void cambiarInteres() throws IOException {
 		long ncuenta;
 		System.out.println("Introduzca número de cuenta");
@@ -191,6 +220,9 @@ public class MenuCuenta {
 		}
 	}
 	
+	/**
+	 * Se listan todas las cuentas creadas, junto a su estado
+	 * */
 	public void listarCuentas() {
 		for (Map.Entry<Long, Cuenta> cuenta : cuentas.entrySet()) {
 			
