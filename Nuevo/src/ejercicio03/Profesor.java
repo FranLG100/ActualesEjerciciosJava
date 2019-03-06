@@ -7,6 +7,10 @@ public class Profesor extends Persona {
 	public Profesor() {
 	}
 
+	/**
+	 * Constructor de un Profesor
+	 * @param Despacho Número de despacho del profesor
+	 * */
 	public Profesor(String nombre, String apellidos, String dni, int Despacho) {
 		super(nombre, apellidos, dni);
 		this.Despacho = Despacho;

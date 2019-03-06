@@ -9,11 +9,16 @@ public abstract class Persona implements Humano {
 	
 	public Persona() {}
 
+	/**
+	 * Constructor de Persona
+	 * @param nombre Nombre de la persona
+	 * @param apellidos Apellidos de la persona
+	 * @param dni DNI de la persona
+	 * */
 	public Persona(String nombre, String apellidos, String dni) {
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.dni = dni;
-		this.direccion = direccion;
 	}
 
 	@Override

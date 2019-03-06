@@ -6,7 +6,12 @@ public abstract class Publicacion {
 	private String titulo;
 	private int anho;
 	
-	
+	/**
+	 * Constructor de la clase Publicación
+	 * @param codigo Código de publicación
+	 * @param titulo Título de la publicación
+	 * @param anho Año de la publicación
+	 * */
 	public Publicacion(int codigo, String titulo, int anho) {
 		this.codigo = codigo;
 		this.titulo = titulo;

@@ -9,6 +9,12 @@ public class Main {
 		
 		ArrayList<Publicacion> publicaciones=new ArrayList<Publicacion>();
 		
+		
+		/**
+		 * A continuación se procede a un test. Se crean varias publicaciones (libros
+		 * y revistas) y se prueban sus métodos. Todo almacenado en una lista de publicaciones.
+		 * */
+		
 		Libro l1=new Libro(1, "Fray Perico y su Borrico", 1991);
 		Libro l2=new Libro(2, "El Pirata Garrapata", 1989);
 		Libro l3=new Libro(3, "El Fantasma de la Ópera", 1925);
@@ -53,6 +59,10 @@ public class Main {
 		
 	}
 	
+	/**
+	 * Método que cuenta y muestra cuántas publicaciones se encuentran prestadas
+	 * @param publicaciones Colección de publicaciones a comprobar
+	 * */
 	public static void cuentaPrestado(ArrayList<Publicacion> publicaciones) {
 		int cuenta=0;
 		for (Publicacion publicacion : publicaciones) {
@@ -66,6 +76,11 @@ public class Main {
 		System.out.println("\n\nHay prestadas "+cuenta+" publicaciones.");
 	}
 	
+	/**
+	 * Método que muestra publicaciones anteriores a un determinado año
+	 * @param publicaciones Colección de publicaciones a comprobar
+	 * @param anho Año a comprobar
+	 * */
 	public static void publicacionesAnterioresA(ArrayList<Publicacion> publicaciones, int anho) {
 		ArrayList<Publicacion> tmp = new ArrayList<Publicacion>();
 		for (Publicacion publicacion : publicaciones) {

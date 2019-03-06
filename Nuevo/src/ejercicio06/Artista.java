@@ -15,6 +15,13 @@ public class Artista {
 		
 	}
 
+	/**
+	 * Constructor de Artista
+	 * @param nombre Nombre del artista
+	 * @param lugarNac Lugar de Nacimiento
+	 * @param fechaNac Fecha de Nacimiento del artista
+	 * @param fechaFall Fecha de Fallecimiento del artista
+	 * */
 	public Artista(String nombre, String lugarNac, LocalDate fechaNac, LocalDate fechaFall) {
 		this.nombre = nombre;
 		this.lugarNac = lugarNac;

@@ -9,6 +9,13 @@ public class Direccion {
 	
 	public Direccion() {}
 
+	/**
+	 * Constructor de la clase Direccion
+	 * @param calle Nombre de la calle
+	 * @param ciudad Nombre de la ciudad
+	 * @param zip Código postal
+	 * @param pais País de nacimiento
+	 * */
 	public Direccion(String calle, String ciudad, String zip, String pais) {
 		this.calle = calle;
 		this.ciudad = ciudad;

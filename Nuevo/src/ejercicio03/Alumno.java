@@ -7,6 +7,10 @@ public class Alumno extends Persona {
 	public Alumno() {
 	}
 
+	/**
+	 * Constructor de alumno.
+	 * @param idAlumno Identificador del alumno
+	 * */
 	public Alumno(String nombre, String apellidos, String dni, int idAlumno) {
 		super(nombre, apellidos, dni);
 		this.idAlumno = idAlumno;

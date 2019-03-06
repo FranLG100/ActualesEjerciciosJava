@@ -64,6 +64,10 @@ public class Main {
 		
 	}
 	
+	/**
+	 * Método para crear un objeto directivo
+	 * @return Un objeto directivo
+	 * */
 	public static Directivo crearDirectivo() throws IOException {
 		String nombre;
 		String dni; 
@@ -95,6 +99,10 @@ public class Main {
 		
 	}
 	
+	/**
+	 * Método para crear un objeto Comercial
+	 * @return Un objeto Comercial
+	 * */
 	public static Comercial crearComercial() throws IOException {
 		String nombre;
 		String dni; 
@@ -126,6 +134,10 @@ public class Main {
 		
 	}
 	
+	/**
+	 * Método que muestra los comerciales almacenados en una lista
+	 * @param empleados Lista de empleados a analizar
+	 * */
 	public static void mostrarComerciales(ArrayList<Empleado> empleados) throws IOException {
 		for (Empleado empleado : empleados) {
 			if(empleado instanceof Comercial) {
@@ -137,6 +149,10 @@ public class Main {
 		}
 	}
 	
+	/**
+	 * Método que muestra los directivos almacenados en una lista
+	 * @param empleados Lista de empleados a analizar
+	 * */
 	public static void mostrarDirectivos(ArrayList<Empleado> empleados) throws IOException {
 		for (Empleado empleado : empleados) {
 			if(empleado instanceof Directivo) {
@@ -148,6 +164,10 @@ public class Main {
 		}
 	}
 	
+	/**
+	 * Método que muestra los comerciales y directivos almacenados en una lista
+	 * @param empleados Lista de empleados a analizar
+	 * */
 	public static void mostrarEmpleados(ArrayList<Empleado> empleados) throws IOException {
 		for (Empleado empleado : empleados) {
 				System.out.println(empleado);

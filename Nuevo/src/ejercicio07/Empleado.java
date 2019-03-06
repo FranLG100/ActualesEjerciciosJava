@@ -5,7 +5,12 @@ public abstract class Empleado {
 	private String primerNombre, apellidoPaterno;
 	private String nss;
 	
-	
+	/**
+	 * Constructor de Empleado
+	 * @param primerNombre Nombre del Empleado
+	 * @param apellidoPaterno Primer Apellido del empleado
+	 * @param nss Número de la Seguridad Social
+	 * */
 	public Empleado(String primerNombre, String apellidoPaterno, String nss) {
 		this.primerNombre = primerNombre;
 		this.apellidoPaterno = apellidoPaterno;

@@ -10,6 +10,11 @@ public class Catalogo {
 	
 	public Catalogo() {}
 	
+	/**
+	 * Método para añadir una obra al catálogo.
+	 * Comprueba que dicha obra no sea una falsificación y que su número no se encuentre en el catálogo
+	 * @param obra Obra a añadir al catálogo
+	 * */
 	public void addObra(Obra obra) {
 		error=false;
 		if(catalogo.containsKey(obra.getNumInventario())) {
@@ -48,6 +53,10 @@ public class Catalogo {
 		
 	}
 	
+	/**
+	 * Método que eliminar una obra del catálogo
+	 * @param num Número de inventario de la obra a eliminar
+	 * */
 	public void eliminarObra(int num) {
 		if(!catalogo.containsKey(num))
 			System.out.println("Esa obra no existe en nuestro catálogo");
@@ -58,6 +67,10 @@ public class Catalogo {
 			
 	}
 	
+	/**
+	 * Método para buscar una obra en el catálogo
+	 * @param num Número de inventario de la obra a buscars
+	 * */
 	public void buscarObra(int num) {
 		if(!catalogo.containsKey(num))
 			System.out.println("Esa obra no existe en nuestro catálogo");
@@ -66,21 +79,27 @@ public class Catalogo {
 		}
 	}
 	
+	/**
+	 * Método que obtiene la superficie total que ocupan los cuadros del catálogo
+	 * */
 	public void obtenerSuperficie() {
 		int superficie=0;
 		for (Map.Entry<Integer, Obra> pintura : catalogo.entrySet()) {
-			if(pintura instanceof Pintura)
+			if(pintura.getValue() instanceof Pintura)
 				superficie+=((((Pintura) pintura.getValue()).getAncho())*(((Pintura) pintura.getValue()).getAlto()));
 		}
 		
 		System.out.println("La superficie total de las pinturas que alberga el museo es de "+((double)(superficie/10000))+"m2.");
 	}
 	
+	/**
+	 * Método que halla la estatua más alta que se encuentra actualmente en el museo
+	 * */
 	public void masAlta() {
 		int alt=0;
 		int aux = 0;
 		for (Map.Entry<Integer, Obra> escultura : catalogo.entrySet()) {
-			if(escultura instanceof Escultura) {
+			if(escultura.getValue() instanceof Escultura) {
 				if(alt<((Escultura) escultura.getValue()).getAltura())
 					aux=escultura.getKey();
 			}

@@ -15,6 +15,11 @@ public class Usuario {
 		
 	}
 	
+	/**
+	 * Constructor de un Usuario
+	 * @param nick Nick de usuario
+	 * @param email Email del usuario
+	 * */
 	public Usuario(String nick, String email) {
 		this.nick=nick;
 		this.email=email;
@@ -37,6 +42,10 @@ public class Usuario {
 			mensajes--;
 	}
 	
+	/**
+	 * Método para modificar el email actual
+	 * @param email Nuevo email
+	 * */
 	public void modificaEmail(String email) throws IOException {
 		this.email=email;
 	}

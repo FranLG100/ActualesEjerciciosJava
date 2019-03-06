@@ -10,7 +10,13 @@ public class Obra {
 	public Obra() {}
 	
 	
-	
+	/**
+	 * Constructor de una Obra
+	 * @param titulo Título de la obra
+	 * @param numInventario Número de inventario de la Obra
+	 * @param autor Autor de la Obra
+	 * @param anyo Año de la obra
+	 * */
 	public Obra(String titulo, int numInventario, Artista autor, int anyo) {
 		super();
 		this.titulo = titulo;
@@ -26,6 +32,11 @@ public class Obra {
 	}
 
 
+	/**
+	 * Método que compara la obra con otra obra, dadas unas características
+	 * @param obra Obra con la cual comparar esta obra
+	 * @return <ul><li>true - Si ambas obras tienen las mismas características</li><li>false - Si no las tienen</li></ul>
+	 * */
 	public boolean equalsObra(Obra obra) {
 		if(this.titulo.equalsIgnoreCase(obra.getTitulo()) && this.autor.getNombre().equalsIgnoreCase(obra.getAutor().getNombre()) && this.anyo==obra.anyo)
 			return true;

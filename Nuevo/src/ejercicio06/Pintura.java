@@ -8,6 +8,13 @@ public class Pintura extends Obra{
 	public Pintura() {
 		super();
 	}
+	
+	/**
+	 * Constructor de la clase Pintura
+	 * @param ancho Ancho de la pintura
+	 * @param alto Alto de la pintura
+	 * @param soporte Soporte de la obra
+	 * */
 	public Pintura(String titulo, int numInventario, Artista autor,int anyo, int ancho, int alto, String soporte) {
 		super(titulo, numInventario, autor, anyo);
 		this.ancho=ancho;

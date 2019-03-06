@@ -13,6 +13,12 @@ public class Cliente {
 	
 	public Cliente() {};
 	
+	/**
+	 * Constructor público de Cliente
+	 * @param dni DNI del cliente
+	 * @param nombre Nombre del Cliente
+	 * @param apellidos Apellidos del Cliente
+	 * */
 	public Cliente(String dni, String nombre, String apellidos) throws IOException {
 		this.dni=amadeus.compruebaNIF(dni);
 		this.nombre=nombre;

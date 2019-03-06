@@ -36,7 +36,7 @@ public class Test {
 			if(usuario instanceof Administrador) {
 				((Administrador) usuario).incrementBans();
 				((Administrador) usuario).incrementBans();
-				usuario.modificaEmail("am@adeus.com");
+				usuario.modificaEmail("am@deus.com");
 				usuario.setNick("Amadeus");
 				System.out.println("\nTipo: Administrador"+usuario);
 			}

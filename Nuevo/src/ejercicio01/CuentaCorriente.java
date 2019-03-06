@@ -21,6 +21,9 @@ public class CuentaCorriente extends Cuenta{
 		return "\nNúmero de cuenta: "+numerocuenta+"\nCliente: "+cliente.getNombre()+" "+cliente.getApellidos()+"\nSaldo: "+saldo;
 	}
 	
+	/**
+	 * Método para actualizar el saldo de la cuenta
+	 * */
 	@Override
 	public void actualizarSaldo() {
 		saldo=saldo+(saldo*(interes/100));

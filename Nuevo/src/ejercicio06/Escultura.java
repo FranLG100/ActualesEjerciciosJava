@@ -8,6 +8,11 @@ public class Escultura extends Obra {
 	public Escultura() {
 	}
 	
+	/**
+	 * Constructor de una Escultura
+	 * @param material Material de la estatua
+	 * @param altura Altura de la estatua
+	 * */
 	public Escultura(String titulo, int numInventario, Artista autor, int anyo, String material, int altura) {
 		super(titulo, numInventario, autor, anyo);
 		this.material=material;

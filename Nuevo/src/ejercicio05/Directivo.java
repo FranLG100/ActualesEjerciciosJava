@@ -11,6 +11,10 @@ public class Directivo extends Empleado{
 		super(nombre, dni);
 	}
 	
+	/**
+	 * Constructor de Directivo
+	 * @param comision Comisión que le corresponde al Directivo
+	 * */
 	public Directivo(String nombre, String dni, double sueldo, double comision) {
 		super(nombre, dni);
 		this.sueldo=sueldo;
@@ -21,6 +25,10 @@ public class Directivo extends Empleado{
 		return super.toString()+"\nSueldo base: "+sueldo+"\nComisión: "+comision;
 	}
 	
+	/**
+	 * Método para calcular el sueldo del directivo
+	 * @return Sueldo más la comisión que le corresponde
+	 * */
 	@Override
 	public double calcularSueldo() {
 		// TODO Auto-generated method stub

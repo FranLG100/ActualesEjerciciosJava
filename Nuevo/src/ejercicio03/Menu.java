@@ -10,6 +10,9 @@ public class Menu {
 	private Amadeus amadeus=new Amadeus();
 	private ArrayList<Persona> personas=new ArrayList<Persona>();
 	
+	/**
+	 * Método que arranca un menú y deja que el usuario interactúe con el programa
+	 * */
 	public void arrancaMenu() throws IOException {
 		int option = 0;
 		do {
@@ -47,6 +50,9 @@ public class Menu {
 		
 	}
 	
+	/**
+	 * Crea un objeto alumno con todos sus datos necesarios
+	 * */
 	public void crearAlumno() throws IOException {
 		String c1;
 		String c2;
@@ -84,6 +90,9 @@ public class Menu {
 		
 	}
 	
+	/**
+	 * Crea un objeto profesor con todos sus datos necesarios
+	 * */
 	public void crearProfesor() throws IOException {
 		String c1;
 		String c2;
@@ -121,6 +130,9 @@ public class Menu {
 		
 	}
 	
+	/**
+	 * Lista todos los alumnos almacenados
+	 * */
 	public void listAlumnos() {
 		for (Persona persona : personas) {
 			if(persona instanceof Alumno)
@@ -128,6 +140,9 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Lista todos los profesores almacenados
+	 * */
 	public void listProfesores() {
 		for (Persona persona : personas) {
 			if(persona instanceof Profesor)
@@ -135,6 +150,9 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Lista todos los alumnos y profesores almacenados
+	 * */
 	public void listTodos() {
 		for (Persona persona : personas) {
 				System.out.println(persona);

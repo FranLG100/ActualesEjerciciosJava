@@ -9,6 +9,9 @@ public class Test {
 		
 		Catalogo catalogo=new Catalogo();
 		
+		/**
+		 * Realizamos un test
+		 * */
 		Artista a1=new Artista("Goya", "Fuendetodos - España", LocalDate.of(1746,03,30), LocalDate.of(1828,04,16));
 		Artista a2=new Artista("Picasso", "Málaga - España", LocalDate.of(1881,10,25), LocalDate.of(1973,04,8));
 		
@@ -25,7 +28,9 @@ public class Test {
 		Escultura e2=new Escultura("El Rapto de Proserpina", 6666, a3, 1622, "Mármol", 295);
 		
 		
-		
+		/**
+		 * Añadimos las obras anteriores
+		 * */
 		catalogo.addObra(p1);
 		//System.out.println(catalogo.getCatalogo().get(p1.getNumInventario()).getAutor());
 		catalogo.addObra(p2);
@@ -33,14 +38,30 @@ public class Test {
 		catalogo.addObra(e1);
 		catalogo.addObra(e2);
 		
+		//buscamos una obra en específico
 		catalogo.buscarObra(6666);
+		System.out.println();
+		System.out.println();
+		//Obtenemos la superficie de los cuadros del museo
 		catalogo.obtenerSuperficie();
+		System.out.println();
+		System.out.println();
+		//Hallamos la estatua más alta en nuestro museo
 		catalogo.masAlta();
 		
+		System.out.println();
+		System.out.println();
+		//Eliminamos una obra...
 		catalogo.eliminarObra(5555);
+		System.out.println();
+		//...y probamos a eliminarla de nuevo
 		catalogo.eliminarObra(5555);
 		
+		System.out.println();
+		//Añadimos una obra con un número de inventario repetido
 		catalogo.addObra(p3);
+		System.out.println();
+		//Intentamos añadir una falsificación
 		catalogo.addObra(p4);
 		
 		

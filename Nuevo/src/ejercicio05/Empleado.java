@@ -8,6 +8,11 @@ public abstract class Empleado implements Calculos {
 	
 	public Empleado() {}
 
+	/**
+	 * Constructor de la clase Empleado
+	 * @param nombre Nombre del empleado
+	 * @param dni Dni del empleado
+	 * */
 	public Empleado(String nombre, String dni) {
 		super();
 		this.nombre = nombre;
@@ -37,6 +42,9 @@ public abstract class Empleado implements Calculos {
 		this.dni = dni;
 	}
 	
+	/**
+	 * Método que calcula la cantidad de sueldo retenida dependiendo de la cantidad cobrada
+	 * */
 	@Override
 	public double retencion() {
 		// TODO Auto-generated method stub
@@ -53,6 +61,11 @@ public abstract class Empleado implements Calculos {
 			return calcularSueldo()*0.12;
 	}
 
+	/**
+	 * Método que calcula cuánto le corresponde a un empleado de gratificación
+	 * dependiendo de su número de hijos
+	 * @param nhijos Número de hijos
+	 * */
 	@Override
 	public double gratificacion(int nhijos) {
 		// TODO Auto-generated method stub
@@ -65,6 +78,9 @@ public abstract class Empleado implements Calculos {
 			return 0;
 	}
 
+	/**
+	 * Método que calcula el sueldo, teniendo en cuenta la retención y la gratificación
+	 * */
 	@Override
 	public double calcular() {
 		return calcularSueldo()-retencion()+gratificacion(nhijos);
