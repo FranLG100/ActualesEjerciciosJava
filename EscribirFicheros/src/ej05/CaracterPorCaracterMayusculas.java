@@ -27,7 +27,7 @@ public class CaracterPorCaracterMayusculas {
 			else {
 				if(Character.isLowerCase(c))
 					c=Character.toUpperCase(c);
-			System.out.println(c);
+			System.out.print(c);
 			c=(char) lector.read();
 			}
 		}

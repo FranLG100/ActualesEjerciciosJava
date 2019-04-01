@@ -1,4 +1,4 @@
-package ej6;
+package ej06;
 
 import java.io.BufferedReader;
 import java.io.File;

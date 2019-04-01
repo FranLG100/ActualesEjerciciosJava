@@ -19,7 +19,7 @@ public class CaracterPorCaracter {
 
 		Amadeus amadeus=new Amadeus();
 		File f=amadeus.abrirArchivo("Creado con txt.txt");
-		amadeus.leerArchivo(f);
+		//amadeus.leerArchivo(f);
 		CaracterPorCaracter.leerCaracterPorCaracter(f);
 	}
 	
@@ -27,7 +27,7 @@ public class CaracterPorCaracter {
 		BufferedReader lector = new BufferedReader(new FileReader(f));
 		char c=(char) lector.read();
 		while(c!=(char)(-1)) {
-			System.out.println(c);
+			System.out.print(c);
 			c=(char) lector.read();
 		}
 		lector.close();
