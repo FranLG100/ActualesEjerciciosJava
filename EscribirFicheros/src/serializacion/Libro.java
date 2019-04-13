@@ -5,9 +5,13 @@ import java.io.Serializable;
 
 import utilesFran.Amadeus;
 
-public class Libro implements Serializable{
+public class Libro implements java.io.Serializable{
 
-	private Amadeus amadeus=new Amadeus();
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3L;
+	private transient Amadeus amadeus=new Amadeus();
 	private int codigoLibro;
 	private String isbn;
 	private String titulo;
@@ -117,6 +121,13 @@ public class Libro implements Serializable{
 	public void setAnho(int anho) {
 		this.anho = anho;
 	}
+
+	@Override
+	public String toString() {
+		return "Libro [codigoLibro=" + codigoLibro + ", isbn=" + isbn + ", titulo=" + titulo + ", autor=" + autor
+				+ ", editorial=" + editorial + ", anho=" + anho + "]";
+	}
+	
 	
 	
 	

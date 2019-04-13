@@ -5,9 +5,9 @@ import java.io.Serializable;
 
 import utilesFran.Amadeus;
 
-public class Libro implements Serializable{
+public class Libro implements java.io.Serializable{
 
-	private Amadeus amadeus=new Amadeus();
+	private transient Amadeus amadeus=new Amadeus();
 	private int codigoLibro;
 	private String isbn;
 	private String titulo;

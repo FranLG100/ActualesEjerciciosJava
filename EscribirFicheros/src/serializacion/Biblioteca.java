@@ -7,14 +7,19 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.HashMap;
 
 import utilesFran.Amadeus;
 
-public class Biblioteca {
+public class Biblioteca implements java.io.Serializable{
 	
-	private Amadeus amadeus=new Amadeus();
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2L;
+	private transient Amadeus amadeus=new Amadeus();
 	private HashMap<Integer,Libro> libros=new HashMap<Integer,Libro>();
 	private Libro libro;
 	
@@ -91,22 +96,32 @@ public class Biblioteca {
 	}
 	
 	public void exportarEnFichero() throws IOException {
+		try {
 		FileOutputStream fs = new FileOutputStream("biblioteca.txt");
 		ObjectOutputStream oos = new ObjectOutputStream(fs);
-		
-		oos.writeObject(this.libros);
-		fs.close();
+		HashMap<Integer,Libro> libros=this.libros;
+		oos.writeObject(libros);
 		oos.close();
+		fs.close();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public HashMap<Integer,Libro> importarLibros(HashMap<Integer,Libro> libros) throws IOException, ClassNotFoundException {
+		try {
 		FileInputStream fs = new FileInputStream("biblioteca.txt");
 		ObjectInputStream oos = new ObjectInputStream(fs);
 		
 		libros=(HashMap<Integer, Libro>) oos.readObject();
-		fs.close();
-		oos.close();
 		
+		oos.close();
+		fs.close();
+		
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		this.libros=libros;
 		return libros;
 	}
 	

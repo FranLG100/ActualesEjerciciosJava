@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -20,9 +21,9 @@ import java.util.StringTokenizer;
  * @version 31/03/2019
  * */
 
-public class Amadeus {
+public class Amadeus implements Serializable {
 
-	BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+	transient BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
 	boolean error = false;
 	Random random=new Random();
 
