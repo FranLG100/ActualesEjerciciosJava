@@ -14,7 +14,6 @@ public class ContieneCaracter {
 	public static void main(String[] args) throws IOException {
 
 		Amadeus amadeus=new Amadeus();
-		//Del archivo Ejercicio1, imprimirá aquellas líneas que contengan 't'
 		File f=amadeus.abrirArchivo("Ejercicio 1.txt");
 		ContieneCaracter.contieneCaracter('t', f);
 	}

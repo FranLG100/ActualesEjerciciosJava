@@ -1,14 +1,8 @@
 package utilesFran;
 
 import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -18,12 +12,12 @@ import java.util.StringTokenizer;
  * Clase de utilidades (control de variables, aplicación de try catch, ...)
  * de uso personal
  * @author Francisco Antonio Lorente Girol
- * @version 31/03/2019
+ * @version 20/01/2019
  * */
 
-public class Amadeus implements Serializable {
+public class Amadeus {
 
-	transient BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+	BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
 	boolean error = false;
 	Random random=new Random();
 
@@ -336,40 +330,6 @@ public class Amadeus implements Serializable {
 			if (error) {
 				System.out.println("DNI no válido. Vuélvalo a introducir");
 				respuesta = entrada.readLine();
-			}
-		} while (error);
-		return respuesta.toUpperCase();
-	}
-	
-	/**
-	 * Método que comprueba que el teléfono tenga el formato adecuado de 9 dígitos
-	 * @param s Teléfono a comprobar
-	 * @return Teléfono validado
-	 * */
-	public String compruebaTlf(String s) throws IOException {
-		String respuesta=s;
-		respuesta=respuesta.trim().replaceAll("\\s", "");
-		boolean error = false;
-		char c;
-		
-		do {
-			error=false;
-			while(respuesta.length()!=9) {
-				System.out.println("Longitud del teléfono incorrecta, vuelva a introducirlo");
-				respuesta=recibeTexto();
-				respuesta=respuesta.trim().replaceAll("\\s", "");
-			}
-			for (int i = 0; i < 9; i++) {
-				c = respuesta.charAt(i);
-				if (!Character.isDigit(c)) {
-					error = true;
-					break;
-				}
-			}
-			if (error) {
-				System.out.println("Teléfono no válido. Vuélvalo a introducir");
-				respuesta = entrada.readLine();
-				respuesta=respuesta.trim().replaceAll("\\s", "");
 			}
 		} while (error);
 		return respuesta;
@@ -1655,167 +1615,7 @@ public class Amadeus implements Serializable {
 	}
 	
 	
-	/*/////////////////////////////////////////////////////////////////////*/
-	/*/MANEJO//DE//FICHEROS////////////////////////////////////////////////*/
-	/*/////////////////////////////////////////////////////////////////////*/
 	
-	public File crearArchivo(String nombreArchivo) {
-		File archivo = new File(nombreArchivo);
-		try {
-			PrintWriter salida = new PrintWriter(new FileWriter(archivo));
-			salida.close();
-			System.out.println("El archivo se ha creado correctamente\n");
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-		return archivo;
-	}
-	
-	public File abrirArchivo(String nombreArchivo) {
-		File archivo = new File(nombreArchivo);
-		try {
-			PrintWriter salida = new PrintWriter(new FileWriter(archivo,true));
-			salida.close();
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-		return archivo;
-	}
-	
-	public File abrirArchivo(File archivo) {
-		try {
-			PrintWriter salida = new PrintWriter(new FileWriter(archivo,true));
-			salida.close();
-			System.out.println("El archivo se ha abierto correctamente\n");
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-		return archivo;
-	}
-	
-	public void escribirArchivo(File archivo, String contenido) {
-		try {
-			PrintWriter salida = new PrintWriter(new FileWriter(archivo, true));
-			salida.println("\n"+contenido);
-			salida.close();
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-	}
-	
-	public void leerArchivo(File archivo) {
-		try {
-			BufferedReader entrada = new BufferedReader(new FileReader(archivo));
-			String lectura;
-			lectura = entrada.readLine();
-			while (lectura != null) {
-				System.out.println(lectura);
-				lectura = entrada.readLine();
-			}
-			entrada.close();
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-	}
-	
-	public void anexarArchivo(File archivo, String contenido) {
-		try {
-			PrintWriter salida = new PrintWriter(new FileWriter(archivo, true));
-			salida.println(contenido);
-			salida.close();
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-	}
-	
-	public void cuentaPalabras(File file) throws IOException {
-		Amadeus amadeus=new Amadeus();
-		ArrayList<String> lineas=new ArrayList<String>();
-		ArrayList<String> palabras=new ArrayList<String>();
-		BufferedReader lector = new BufferedReader(new FileReader(file));
-		String linea=lector.readLine();
-		
-		while (linea!=null) {
-			lineas.add(linea);
-			linea=lector.readLine();
-		}
-		lector.close();
-		for (String s : lineas) {
-			palabras.addAll(Arrays.asList(s.split("\\s")));
-		}
-		
-		System.out.println(palabras.size());
-	}
-	
-	
-	public void cuentaPalabrasPorLinea(File file) throws IOException {
-		Amadeus amadeus=new Amadeus();
-		ArrayList<String> lineas=new ArrayList<String>();
-		ArrayList<String> palabras=new ArrayList<String>();
-		int contador=1;
-		BufferedReader lector = new BufferedReader(new FileReader(file));
-		String linea=lector.readLine();
-		
-		while (linea!=null) {
-			lineas.add(linea);
-			linea=lector.readLine();
-		}
-		lector.close();
-		for (String s : lineas) {
-			System.out.println("Línea "+contador+" : "+s.split("\\s").length+" palabras");
-			contador++;
-		}
-
-	}
-	
-	public void contieneCaracter(char c, File f) throws IOException {
-		BufferedReader lector = new BufferedReader(new FileReader(f));
-		String linea=lector.readLine();
-		
-		while (linea!=null) {
-			char[] aux=linea.toCharArray();
-			boolean contiene=false;
-			for (int i = 0; i < aux.length; i++) {
-				if(linea.charAt(i)==c) {
-					contiene=true;
-					break;
-				}
-			}
-			if(contiene) {
-				System.out.println(linea);
-				linea=lector.readLine();
-				}
-			else
-				linea=lector.readLine();
-		}
-		lector.close();
-	}
-	
-	public void leerCaracterPorCaracter(File f) throws IOException {
-		BufferedReader lector = new BufferedReader(new FileReader(f));
-		char c=(char) lector.read();
-		while(c!=(char)(-1)) {
-			System.out.println(c);
-			c=(char) lector.read();
-		}
-		lector.close();
-	}
-	
-	public static void leerCaracterPorCaracterMayusculas(File f) throws IOException {
-		BufferedReader lector = new BufferedReader(new FileReader(f));
-		char c=(char) lector.read();
-		while(c!=(char)(-1)) {
-			if (Character.isDigit(c))
-				c=(char) lector.read();
-			else {
-				if(Character.isLowerCase(c))
-					c=Character.toUpperCase(c);
-			System.out.println(c);
-			c=(char) lector.read();
-			}
-		}
-		lector.close();
-	}
 	
 }
 	
