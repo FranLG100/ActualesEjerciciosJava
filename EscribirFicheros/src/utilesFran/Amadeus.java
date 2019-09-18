@@ -1718,6 +1718,25 @@ public class Amadeus implements Serializable {
 		}
 	}
 	
+	public ArrayList<String> obtenerPalabrasArchivo(File archivo) {
+		ArrayList<String> palabras=new ArrayList<String>();
+		try {
+			
+			BufferedReader entrada = new BufferedReader(new FileReader(archivo));
+			String lectura;
+			lectura = entrada.readLine();
+			while (lectura != null) {
+				System.out.println(lectura);
+				palabras.add(lectura);
+				lectura = entrada.readLine();
+			}
+			entrada.close();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+		return palabras;
+	}
+	
 	public void anexarArchivo(File archivo, String contenido) {
 		try {
 			PrintWriter salida = new PrintWriter(new FileWriter(archivo, true));
