@@ -9,8 +9,10 @@ public class Main implements Serializable{
 		// TODO Auto-generated method stub
 
 		Empresa empresa=new Empresa();
-		empresa.escribirFichero();
 		empresa.iniciarFichero();
+		empresa.insertarDepartamento();
+		empresa.contarEmpresas();
+		empresa.escribirFichero();
 	}
 
 }

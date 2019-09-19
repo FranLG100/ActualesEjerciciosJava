@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
@@ -25,9 +26,7 @@ public class Empresa implements Serializable{
 	private HashMap<Integer, Departamento> empresa=new HashMap<Integer,Departamento>();
 	
 	public void escribirFichero() throws IOException {
-		departamento=new Departamento(2, "A", "B");
-		this.empresa.put(1, departamento);
-		fos=new FileOutputStream("empresa.txt");
+		fos=new FileOutputStream("empresas.txt");
 		oos=new ObjectOutputStream(fos);
 		oos.writeObject(empresa);
 		oos.close();
@@ -47,12 +46,7 @@ public class Empresa implements Serializable{
 			File archivo=new File("empresas.txt");
 			PrintWriter inicializador=new PrintWriter(new FileWriter(archivo));
 			inicializador.close();
-			
-			fis=new FileInputStream("empresas.txt");
-			ois=new ObjectInputStream(fis);
-			empresa=(HashMap<Integer, Departamento>) ois.readObject();
-			ois.close();
-			fis.close();
+			iniciarFichero();
 		} catch (EOFException e) {
 			//ois.close();
 			fis.close();
@@ -68,7 +62,25 @@ public class Empresa implements Serializable{
 	}
 	
 	public void contarEmpresas() {
+		System.out.println("Actualmente hay registrados "+empresa.size()+" departamentos");
+	}
+	
+	public void insertarDepartamento() throws NumberFormatException, IOException {
+		int n;
+		String nombre;
+		String localidad;
+		BufferedReader entrada=new BufferedReader(new InputStreamReader(System.in));
 		
+		System.out.println("Inroduzca n de Departamento");
+		n=Integer.parseInt(entrada.readLine());
+		System.out.println("Inroduzca nombre de Departamento");
+		nombre=entrada.readLine();
+		System.out.println("Inroduzca localidad de Departamento");
+		localidad=entrada.readLine();
+		
+		departamento=new Departamento(n, nombre, localidad);
+		empresa.put(n, departamento);
+		System.out.println("Departamento registrado con éxito");
 	}
 	
 	
