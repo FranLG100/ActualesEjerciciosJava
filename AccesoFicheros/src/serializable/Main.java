@@ -10,9 +10,8 @@ public class Main implements Serializable{
 
 		Empresa empresa=new Empresa();
 		empresa.iniciarFichero();
-		empresa.insertarDepartamento();
 		empresa.contarEmpresas();
-		empresa.escribirFichero();
+		empresa.borrarDepartamento();
 	}
 
 }
