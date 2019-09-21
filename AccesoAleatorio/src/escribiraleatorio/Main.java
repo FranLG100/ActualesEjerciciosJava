@@ -10,7 +10,7 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
-		File fichero=new File("aleatorio.txt");
+		/*File fichero=new File("aleatorio.txt");
 		RandomAccessFile file=new RandomAccessFile(fichero, "rw");
 		String[] apellidos= {"Lorente","Rodriguez","Hinojosa","Ferrera"};
 		int[] dep= {2,4,6,8};
@@ -29,7 +29,7 @@ public class Main {
 			file.writeDouble(salario[i]);
 			file.writeInt(registro[i]);
 		}
-		file.close();
+		file.close();*/
 	}
 
 }

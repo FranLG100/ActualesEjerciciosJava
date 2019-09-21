@@ -9,7 +9,7 @@ public class LeerFichero {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-
+		/*
 		File archivo=new File("aleatorio.txt");
 		RandomAccessFile file=new RandomAccessFile(archivo, "r");
 		int id,departamento=0;
@@ -18,7 +18,6 @@ public class LeerFichero {
 		Double salario;
 		char[] apellido=new char[10]; 
 		char aux;
-		
 		//Todos los registros
 		while(true) {
 			file.seek(posicion);
@@ -59,7 +58,7 @@ public class LeerFichero {
 			System.out.println("ID: "+id+"\nApellidos: "+apellidos+"\nSalario: "+salario);
 		}
 		
-		
+		*/
 	}
 
 }
