@@ -8,6 +8,8 @@ import java.io.PrintWriter;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 
+import javax.swing.table.DefaultTableModel;
+
 public class Empresa {
 
 	File fichero;//=new File("empleados.txt");
@@ -190,11 +192,32 @@ public class Empresa {
 			if(file.getFilePointer()==file.length())
 				break;
 			id=file.readInt();
-			ids.add(id);
+			if(id>=0)
+				ids.add(id);
 			posicion+=40;
 		}
 		System.out.println(ids.toString());
 		file.close();
+	}
+	
+	public  DefaultTableModel llenarTabla() throws IOException{
+		DefaultTableModel plantilla=new DefaultTableModel();
+		String[] headers = { "ID", "Apellido"};
+		String[][] tabla=new String[ids.size()][2];
+		String[] datos;
+		
+		int i=0;
+		apellido="";
+		for (int identificador : ids) {
+			if(identificador>=0) {
+				datos=consultarEmpleado(identificador);
+				tabla[i][0]=datos[0];
+				tabla[i][1]=datos[1];
+				i++;
+				}
+		}
+		plantilla.setDataVector(tabla, headers);
+		return plantilla;
 	}
 	
 }

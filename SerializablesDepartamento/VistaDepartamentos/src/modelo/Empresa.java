@@ -15,6 +15,11 @@ import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Map.Entry;
+
+import javax.swing.table.DefaultTableModel;
+
+import com.sun.javafx.collections.MappingChange.Map;
 
 public class Empresa implements Serializable {
 
@@ -104,6 +109,23 @@ public class Empresa implements Serializable {
 		datos[0]=empresa.get(n).getNombre();
 		datos[1]=empresa.get(n).getLocalidad();
 		return datos;
+	}
+	
+	public DefaultTableModel llenarTabla() {
+		DefaultTableModel plantilla=new DefaultTableModel();
+		String headers[]= {"ID","Nombre","Localidad"};
+		String[][] tabla=new String[empresa.size()][3];
+		int id;
+		int i=0;
+		String nombre, localidad;
+		for (Entry<Integer, Departamento> dpto : empresa.entrySet()) {
+			tabla[i][0]=Integer.toString(dpto.getKey());
+			tabla[i][1]=dpto.getValue().getNombre();
+			tabla[i][2]=dpto.getValue().getLocalidad();
+			i++;
+			}
+		plantilla.setDataVector(tabla, headers);
+		return plantilla;
 	}
 
 }

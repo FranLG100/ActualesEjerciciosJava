@@ -65,7 +65,7 @@ public class Controlador implements ActionListener, MouseListener {
 		this.vista.btnCalcular.addActionListener(this);
 		
 		empresa.iniciarArchivo();
-		
+		this.vista.tablaEmpleados.setModel(empresa.llenarTabla());
 	}
 
 	@Override
@@ -81,6 +81,10 @@ public class Controlador implements ActionListener, MouseListener {
 			} catch (IOException e2) {
 				// TODO Auto-generated catch block
 				e2.printStackTrace();
+			}
+			if(this.vista.campoApellido.getText().toString().trim().length()>12) {
+				JOptionPane.showMessageDialog(null, "El apellido no puede exceder los 12 caracteres");
+				error=true;
 			}
 			if(!dptoValido || !apellidoValido || !idValido || !salarioValido) {
 				JOptionPane.showMessageDialog(null, "Hay campos vacíos");
@@ -129,6 +133,7 @@ public class Controlador implements ActionListener, MouseListener {
 					empresa.insertarEmpleado(Integer.parseInt(this.vista.campoID.getText()), this.vista.campoApellido.getText().toString(), Integer.parseInt(this.vista.campoDepartamento.getText()), Double.parseDouble(this.vista.campoSalario.getText()));
 					System.out.println("Empleado insertado");
 					JOptionPane.showMessageDialog(null, "Registrado con exito");
+					this.vista.tablaEmpleados.setModel(empresa.llenarTabla());
 					} catch (NumberFormatException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -168,6 +173,8 @@ public class Controlador implements ActionListener, MouseListener {
 					empresa.eliminarEmpleado(Integer.parseInt(this.vista.campoID.getText()));
 					System.out.println("Empleado insertado");
 					JOptionPane.showMessageDialog(null, "Eliminacion exitosa");
+					this.vista.tablaEmpleados.setModel(empresa.llenarTabla());
+					
 					} catch (NumberFormatException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

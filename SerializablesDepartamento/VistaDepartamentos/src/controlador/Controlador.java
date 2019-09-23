@@ -67,6 +67,7 @@ public class Controlador implements ActionListener, MouseListener {
 		
 		empresa.iniciarFichero();
 		this.vista.dptosTotales.setText(empresa.contarEmpresas());
+		this.vista.tablaDptos.setModel(empresa.llenarTabla());
 
 	}
 
@@ -117,6 +118,7 @@ public class Controlador implements ActionListener, MouseListener {
 						System.out.println("Departamento insertado");
 						JOptionPane.showMessageDialog(null, "Registrado con exito");
 						this.vista.dptosTotales.setText(empresa.contarEmpresas());
+						this.vista.tablaDptos.setModel(empresa.llenarTabla());
 					} catch (NumberFormatException | IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -185,6 +187,7 @@ public class Controlador implements ActionListener, MouseListener {
 						empresa.insertarDepartamento(Integer.parseInt(this.vista.campoDpto.getText()), this.vista.campoNombreDpto.getText().toString(), this.vista.campoLocalidadDpto.getText().toString());
 						System.out.println("Departamento modificado");
 						JOptionPane.showMessageDialog(null, "Modificado con exito");
+						this.vista.tablaDptos.setModel(empresa.llenarTabla());
 						} catch (NumberFormatException | IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -220,6 +223,7 @@ public class Controlador implements ActionListener, MouseListener {
 						empresa.borrarDepartamento(Integer.parseInt(this.vista.campoDpto.getText()));
 						JOptionPane.showMessageDialog(null, "Eliminado con exito");
 						this.vista.dptosTotales.setText(empresa.contarEmpresas());
+						this.vista.tablaDptos.setModel(empresa.llenarTabla());
 					} catch (NumberFormatException | IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
